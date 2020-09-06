@@ -1944,16 +1944,36 @@ pre code {
   font-size: 12px;
 }
 .back-to-top {
-  margin: 8px -10px -20px;
-  opacity: 0;
-  transition: opacity 0.2s ease-in-out;
-}
-.back-to-top.back-to-top-on {
+  bottom: -100px;
+  box-sizing: border-box;
+  color: #fff;
+  padding: 0 6px;
+  transition: bottom 0.2s ease-in-out;
+  background: #222;
   cursor: pointer;
   opacity: 0.6;
+  position: fixed;
+  z-index: 1300;
+  right: 30px;
 }
-.back-to-top.back-to-top-on:hover {
+@media (max-width: 991px) {
+  .back-to-top {
+    right: 20px;
+  }
+}
+.back-to-top:hover {
   opacity: 0.8;
+}
+@media (max-width: 991px) {
+  .back-to-top {
+    opacity: 0.8;
+  }
+}
+.back-to-top:hover {
+  color: #fc6423;
+}
+.back-to-top.back-to-top-on {
+  bottom: 30px;
 }
 .noscript-warning {
   background-color: #f55;
@@ -3087,13 +3107,6 @@ mark.search-keyword {
 .links-of-author-item span.exturl:hover {
   background: var(--body-bg-color);
 }
-.back-to-top {
-  background: var(--body-bg-color);
-  margin: -4px -10px -18px;
-}
-.back-to-top.back-to-top-on {
-  margin-top: 16px;
-}
 .main-inner > .sub-menu,
 .main-inner > .post-block,
 .main-inner > .tabs-comment,
@@ -3174,5 +3187,126 @@ mark.search-keyword {
   }
   .comments {
     padding: 10px 12px;
+  }
+}
+.site-title {
+  font-size: 2em;
+}
+.site-subtitle {
+  line-height: 1;
+  width: 4em;
+  margin: 10px auto;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 8s steps(4, end) infinite, blink-caret 0.75s step-end infinite;
+}
+@media (max-width: 991px) {
+  .site-meta {
+    padding: 10px 0;
+  }
+}
+#jinrishici-sentence {
+  font-size: 12px;
+  display: block;
+  padding: 5px;
+  margin-top: 5;
+}
+.back-to-top.back-to-top-on {
+  margin-top: 0;
+}
+.vedit .vrow,
+.markdown,
+.vpower {
+  display: none;
+}
+#veditor {
+  min-height: 6.5em;
+}
+.vrow {
+  padding: 0 !important;
+}
+.vpanel {
+  background: url("../images/comment.png") no-repeat;
+  background-position: right 75px bottom 15px;
+}
+#tp-weather-widget .sw-container {
+  position: fixed;
+  top: unset;
+  bottom: 20px;
+  left: unset;
+  right: 20px;
+}
+@media (max-width: 991px) {
+  #tp-weather-widget .sw-container {
+    position: fixed;
+    top: unset;
+    bottom: 20px;
+    left: unset;
+    right: -3px;
+    opacity: 0.9;
+  }
+}
+@-moz-keyframes typing {
+  5% {
+    width: 0;
+  }
+  50% {
+    width: 4em;
+  }
+}
+@-webkit-keyframes typing {
+  5% {
+    width: 0;
+  }
+  50% {
+    width: 4em;
+  }
+}
+@-o-keyframes typing {
+  5% {
+    width: 0;
+  }
+  50% {
+    width: 4em;
+  }
+}
+@keyframes typing {
+  5% {
+    width: 0;
+  }
+  50% {
+    width: 4em;
+  }
+}
+@-moz-keyframes blink-caret {
+  from, to {
+    box-shadow: 1px 0 0 0;
+  }
+  50% {
+    box-shadow: 1px 0 0 0 transparent;
+  }
+}
+@-webkit-keyframes blink-caret {
+  from, to {
+    box-shadow: 1px 0 0 0;
+  }
+  50% {
+    box-shadow: 1px 0 0 0 transparent;
+  }
+}
+@-o-keyframes blink-caret {
+  from, to {
+    box-shadow: 1px 0 0 0;
+  }
+  50% {
+    box-shadow: 1px 0 0 0 transparent;
+  }
+}
+@keyframes blink-caret {
+  from, to {
+    box-shadow: 1px 0 0 0;
+  }
+  50% {
+    box-shadow: 1px 0 0 0 transparent;
   }
 }

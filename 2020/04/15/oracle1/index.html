@@ -24,19 +24,21 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="这是BigBaiDog的个人博客。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Blog">
-<meta property="og:url" content="http://example.com/archives/2020/index.html">
+  <meta name="description" content="整理学习笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Oracle体系结构">
+<meta property="og:url" content="http://example.com/2020/04/15/oracle1/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="这是BigBaiDog的个人博客。">
+<meta property="og:description" content="整理学习笔记">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-04-15T05:40:02.000Z">
+<meta property="article:modified_time" content="2020-04-21T16:49:46.000Z">
 <meta property="article:author" content="BigBaiDog">
-<meta property="article:tag" content="BigBaiDog">
+<meta property="article:tag" content="oracle">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/archives/2020/">
+<link rel="canonical" href="http://example.com/2020/04/15/oracle1/">
 
 
 <script data-pjax class="page-configurations">
@@ -44,12 +46,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>归档 | Blog</title>
+  <title>Oracle体系结构 | Blog</title>
   
 
 
@@ -198,7 +200,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -210,6 +212,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Oracle-%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">1.</span> <span class="nav-text">Oracle 服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Oracle%E5%AE%9E%E4%BE%8B"><span class="nav-number">2.</span> <span class="nav-text">Oracle实例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SGA%EF%BC%88System-Global-Area-%E7%B3%BB%E7%BB%9F%E5%85%A8%E5%B1%80%E5%8C%BA%EF%BC%89"><span class="nav-number">2.1.</span> <span class="nav-text">SGA（System Global Area 系统全局区）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PGA%EF%BC%88Program-Global-Area-%E7%A8%8B%E5%BA%8F%E5%85%A8%E5%B1%80%E5%8C%BA%EF%BC%89"><span class="nav-number">2.2.</span> <span class="nav-text">PGA（Program Global Area 程序全局区）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8E%E5%8F%B0%E8%BF%9B%E7%A8%8B"><span class="nav-number">2.3.</span> <span class="nav-text">后台进程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Oracle%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">3.</span> <span class="nav-text">Oracle数据库</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -276,236 +279,186 @@
 </noscript>
 
 
-    <div class="main-inner archive posts-collapse">
+    <div class="main-inner post posts-expand">
       
 
       
 
+    
   
   
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/04/15/oracle1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="BigBaiDog">
+      <meta itemprop="description" content="这是BigBaiDog的个人博客。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Oracle体系结构
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-04-15 13:40:02" itemprop="dateCreated datePublished" datetime="2020-04-15T13:40:02+08:00">2020-04-15</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-04-22 00:49:46" itemprop="dateModified" datetime="2020-04-22T00:49:46+08:00">2020-04-22</time>
+      </span>
+
   
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <span class="collection-header">嗯..! 目前共计 17 篇日志。 继续努力。</span>
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
       </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.7k</span>
+    </span>
+</div>
 
-      
-    <div class="collection-year">
-      <span class="collection-header">2020</span>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <blockquote class="blockquote-center">
+<p>整理学习笔记</p>
+
+</blockquote>
+<a id="more"></a>
+<h2 id="Oracle-服务器"><a href="#Oracle-服务器" class="headerlink" title="Oracle 服务器"></a>Oracle 服务器</h2><p>是一个具有高性能和高可靠性面向对象关系型数据库管理系统。Oracle 服务器同运行在操作系统下的很多程序一样，通过在后台运行一组可执行程序、在内存中开辟程序运行的存储区域并在磁盘上存储数据来进行运作。</p>
+<blockquote>
+<p>Oracle Server（oracle服务器）=Instance（实例）+Database（数据库）</p>
+</blockquote>
+<h2 id="Oracle实例"><a href="#Oracle实例" class="headerlink" title="Oracle实例"></a>Oracle实例</h2><p>是一种数据库的访问机制，由内存结构和后台进程组成，一个实例在其生命周期内只能装载和打开一个数据库。</p>
+<blockquote>
+<p>Instance（实例）=SGA（内存结构）+Background Process（ 后台进程）</p>
+</blockquote>
+<h3 id="SGA（System-Global-Area-系统全局区）"><a href="#SGA（System-Global-Area-系统全局区）" class="headerlink" title="SGA（System Global Area 系统全局区）"></a>SGA（System Global Area 系统全局区）</h3><p>是一组包含一个Oracle实例的数据和控制信息的共享内存结构，在实例启动时分配，关闭时释放，用于存储数据库信息的内存区。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> sga;  <span class="comment">-- 查看系统全局区大小</span></span><br></pre></td></tr></table></figure>
+<p><strong>Shared Pool（共享池）</strong><br>库高速缓冲区：</p>
+<ul>
+<li>共享SQL区存放每条被缓存的sql语句中的语法分析结果和执行结果。</li>
+<li>私有SQL区存放用户信息，例如sql语句的绑定变量、环境、会话等。</li>
+</ul>
+<p>字典高速缓冲区：存放着系统内部管理所需要的数据字典信息，例如用户名，数据对象和权限等。</p>
+<p><strong>Database Buffer Cache（数据高速缓存区）</strong><br>存放oracle系统最近访问过的数据块。用户发起请求时会先在数据高速缓存区中查找，找不到时会将数据从数据文件中读出来，放入高速缓存区中再返回给用户。</p>
+<p><strong>Redo Log Buffer（重做日志缓存区）</strong><br>存放记录oracle系统进行修改操作的日志信息，这些日志信息由LGWR写入重做日志组。</p>
+<p>Large Pool（大型池）<br>用于为大内存操作提供相对独立的内存空间，替分担共享池压力。</p>
+<p>Java Pool（java池）<br>存放java虚拟机。只有当应用程序需要在数据库中运行java存储程序时，才需要java池。</p>
+<h3 id="PGA（Program-Global-Area-程序全局区）"><a href="#PGA（Program-Global-Area-程序全局区）" class="headerlink" title="PGA（Program Global Area 程序全局区）"></a>PGA（Program Global Area 程序全局区）</h3><p>是一个私有内存区域，包含服务器进程或后台进程的相关数据和控制信息<br>在一个服务进程启动时创建的，只能被拥有它的那个服务进程所访问。</p>
+<h3 id="后台进程"><a href="#后台进程" class="headerlink" title="后台进程"></a>后台进程</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> pid,username,program <span class="keyword">from</span> V$process</span><br><span class="line"> <span class="keyword">where</span> background=<span class="string">&#x27;1&#x27;</span> <span class="keyword">order</span> <span class="keyword">by</span> program;  <span class="comment">-- 查看后台进程</span></span><br></pre></td></tr></table></figure>
+<p><strong>DBWR/DBWn（Database Write Process 数据写入进程）</strong><br>管理数据缓冲区，负责将脏数据写入数据文件，触发条件：</p>
+<ul>
+<li>脏数据缓冲区达到限额</li>
+<li>定时时间到</li>
+<li>出现检查点</li>
+</ul>
+<p><strong>LGWR（Log Write Process 日志写入进程）</strong><br>负责将重做日志缓冲区的日志数据写入日志文件，触发条件：</p>
+<ul>
+<li>提交事务</li>
+<li>DBWR向磁盘写入脏数据</li>
+<li>切换写入日志文件</li>
+<li>日志缓冲区达到限额</li>
+<li>定时时间到</li>
+</ul>
+<p><strong>PMON（Process Monitor Process 进程监控进程）</strong><br>监控其他进程状态，清理出现故障的进程。</p>
+<p><strong>SMON（System Monitor Process 系统监控进程）</strong><br>数据库启动时执行恢复工作的强制性进程。</p>
+<p><strong>CKPT（检查点进程）</strong><br>负责更新控制文件和数据文件的头文件的检查点信息和触发DBWn写脏数据到磁盘。</p>
+<blockquote>
+<p>注意：实例启动时，这以上五个进程必须启动，若有进程没能成功启动则实例启动失败。</p>
+</blockquote>
+<p>ARCn（归档进程）<br>数据库在归档模式下，系统才会启动ARCn进程。在日志组写满被覆盖前，将其读出写入归档日志文件中。</p>
+<h2 id="Oracle数据库"><a href="#Oracle数据库" class="headerlink" title="Oracle数据库"></a>Oracle数据库</h2><p><strong>数据文件</strong><br>用于存放数据库全部数据。</p>
+<p><strong>控制文件</strong><br>记录了数据库的物理结构，例如数据库名、数据库建立日期、数据文件与日志文件的名字和位置等。</p>
+<p><strong>日志文件</strong><br>记录对数据所作的修改，保护数据库以防止故障。</p>
+<ul>
+<li>重做日志文件：用来循环记录数据库改变的操作系统文件。</li>
+<li>归档日志文件：重做日志文件的备份，用于保护数据不丢失。</li>
+</ul>
+<p>初始化参数文件<br>是一个二进制文件，记录了数据库的基本参数信息，例如数据库名、控制文件所在路径、日志缓冲大小等。</p>
+<p>警告文件<br>记录错误信息和非默认的初始化参数值等，用来诊断和排查。</p>
+<p>跟踪文件<br>存放后台进程和服务器进程的跟踪信息，用来诊断和排查。</p>
+<p>口令文件<br>存放特定用户的口令。</p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2020-07-17T11:49:01+08:00"
-              content="2020-07-17">
-          07-17
-        </time>
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>感谢您的阅读，希望本文对您有所帮助</div>
+  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="BigBaiDog 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="BigBaiDog 支付宝">
+        <span>支付宝</span>
       </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/07/17/web/" itemprop="url">
-            <span itemprop="name">网站性能优化</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2020-06-25T12:20:51+08:00"
-              content="2020-06-25">
-          06-25
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/06/25/header/" itemprop="url">
-            <span itemprop="name">header()函数</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2020-06-04T23:07:44+08:00"
-              content="2020-06-04">
-          06-04
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/06/04/oracle10/" itemprop="url">
-            <span itemprop="name">Oracle 导入导出</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2020-06-04T15:48:31+08:00"
-              content="2020-06-04">
-          06-04
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/06/04/oracle9/" itemprop="url">
-            <span itemprop="name">Oracle 闪回</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2020-05-06T22:24:20+08:00"
-              content="2020-05-06">
-          05-06
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/05/06/oracle8/" itemprop="url">
-            <span itemprop="name">Oracle RMAN备份与恢复</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2020-05-06T16:35:42+08:00"
-              content="2020-05-06">
-          05-06
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/05/06/oracle7/" itemprop="url">
-            <span itemprop="name">Oracle备份与恢复</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2020-05-04T12:00:21+08:00"
-              content="2020-05-04">
-          05-04
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/05/04/oracle6/" itemprop="url">
-            <span itemprop="name">Oracle表空间</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2020-04-30T10:38:30+08:00"
-              content="2020-04-30">
-          04-30
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/04/30/oracle5/" itemprop="url">
-            <span itemprop="name">Oracle逻辑结构</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2020-04-21T19:58:58+08:00"
-              content="2020-04-21">
-          04-21
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/04/21/oracle4/" itemprop="url">
-            <span itemprop="name">Oracle日志文件</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2020-04-17T21:44:55+08:00"
-              content="2020-04-17">
-          04-17
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/04/17/oracle3/" itemprop="url">
-            <span itemprop="name">Oracle控制文件</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-
-    </div>
   </div>
-  
-  
-  
+</div>
 
+          <div class="post-tags">
+              <a href="/tags/oracle/" rel="tag"><i class="fa fa-tag"></i> oracle</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/04/05/android/" rel="prev" title="MIUI养老指南">
+                  <i class="fa fa-chevron-left"></i> MIUI养老指南
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/04/16/oracle2/" rel="next" title="Oracle启动与关闭">
+                  Oracle启动与关闭 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
   
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2020/page/2/">2</a><a class="extend next" rel="next" href="/archives/2020/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
+  
+  
 
 
 

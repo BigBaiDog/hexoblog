@@ -1,21 +1,754 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World</title>
-    <url>/2020/09/06/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvLw==">Hexo<i class="fa fa-external-link-alt"></i></span>! This is your very first post. Check <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv">documentation<i class="fa fa-external-link-alt"></i></span> for more info. If you get any problems when using Hexo, you can find the answer in <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=">troubleshooting<i class="fa fa-external-link-alt"></i></span> or you can ask me on <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==">GitHub<i class="fa fa-external-link-alt"></i></span>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+    <title>ADB常用命令</title>
+    <url>/2020/04/02/adb/</url>
+    <content><![CDATA[<blockquote class="blockquote-center">
+<p>Adb的全称为Android Debug Bridge tool。它功能多样的命令行工具，用于通过电脑端与模拟器或者真实设备交互，adb 命令可用于执行各种设备操作（例如安装和调试应用）。</p>
 
-<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvd3JpdGluZy5odG1s">Writing<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+</blockquote>
+<a id="more"></a>
+<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>最新Google官方版ADB工具包下载地址：<br>ADB和Fastboot for Windows<br><span class="exturl" data-url="aHR0cHM6Ly9kbC5nb29nbGUuY29tL2FuZHJvaWQvcmVwb3NpdG9yeS9wbGF0Zm9ybS10b29scy1sYXRlc3Qtd2luZG93cy56aXA=">https://dl.google.com/android/repository/platform-tools-latest-windows.zip<i class="fa fa-external-link-alt"></i></span><br>ADB和Fastboot for Linux<br><span class="exturl" data-url="aHR0cHM6Ly9kbC5nb29nbGUuY29tL2FuZHJvaWQvcmVwb3NpdG9yeS9wbGF0Zm9ybS10b29scy1sYXRlc3QtbGludXguemlw">https://dl.google.com/android/repository/platform-tools-latest-linux.zip<i class="fa fa-external-link-alt"></i></span><br>ADB和Fastboot for Mac<br><span class="exturl" data-url="aHR0cHM6Ly9kbC5nb29nbGUuY29tL2FuZHJvaWQvcmVwb3NpdG9yeS9wbGF0Zm9ybS10b29scy1sYXRlc3QtZGFyd2luLnppcA==">https://dl.google.com/android/repository/platform-tools-latest-darwin.zip<i class="fa fa-external-link-alt"></i></span></p>
+<h2 id="设备连接"><a href="#设备连接" class="headerlink" title="设备连接"></a>设备连接</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">adb version            #查看adb版本</span><br><span class="line">adb devices            #获取设备列表及设备状态</span><br><span class="line">adb reboot             #重启设备</span><br><span class="line">adb reboot recovery    #重启到恢复模式</span><br><span class="line">adb reboot bootloader  #重启到引导模式</span><br></pre></td></tr></table></figure>
 
-<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvc2VydmVyLmh0bWw=">Server<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<h2 id="fastboot命令"><a href="#fastboot命令" class="headerlink" title="fastboot命令"></a>fastboot命令</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">fastboot devices                 #查看设备</span><br><span class="line">fastboot reboot                  #重启设备</span><br><span class="line">fastboot erase 分区              #擦除分区</span><br><span class="line">fastboot format 分区             #格式化分区</span><br><span class="line">fastboot flash 分区 分区文件路径  #写入分区镜像</span><br></pre></td></tr></table></figure>
 
-<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvZ2VuZXJhdGluZy5odG1s">Generating<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<h2 id="系统信息"><a href="#系统信息" class="headerlink" title="系统信息"></a>系统信息</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">adb shell getprop ro.product.model          #查看型号</span><br><span class="line">adb shell getprop ro.build.version.release  #查看系统版本</span><br><span class="line">adb shell wm size                           #查看屏幕分辨率</span><br><span class="line">adb shell wm density                        #查看屏幕密度</span><br><span class="line">adb shell dumpsys battery                   #查看电池状况</span><br></pre></td></tr></table></figure>
 
-<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvb25lLWNvbW1hbmQtZGVwbG95bWVudC5odG1s">Deployment<i class="fa fa-external-link-alt"></i></span></p>
+<h2 id="应用相关"><a href="#应用相关" class="headerlink" title="应用相关"></a>应用相关</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">adb install 安装包路径            #安装应用</span><br><span class="line">adb uninstall 应用包名            #卸载应用</span><br><span class="line">adb shell am force-stop 应用包名  #强制停止应用</span><br><span class="line">adb shell pm list package        #列出设备上的应用</span><br><span class="line">adb shell pm list package -s     #列出设备上的系统应用</span><br><span class="line">adb shell pm list package -3     #列出设备上的第三方应用</span><br><span class="line">adb shell pm list package -f     #列出应用存放位置</span><br><span class="line">adb shell pm list package -i     #列出应用安装来源</span><br></pre></td></tr></table></figure>
+
+<h2 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">adb pull 设备文件路径 本地文件路径  #设备传送文件到本地</span><br><span class="line">adb push 本地文件路径 设备文件路径  #本地传送文件到设备</span><br><span class="line">adb shell screencap 截图路径       #截图</span><br><span class="line">adb shell screenrecord 录屏路径    #录制屏幕（停止：Ctrl+C，最长录制时间是180秒）</span><br></pre></td></tr></table></figure>
+
+<h2 id="模拟输入"><a href="#模拟输入" class="headerlink" title="模拟输入"></a>模拟输入</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db shell input keyevent 键码  #模拟按键</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>键码</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>3</td>
+<td>HOME键</td>
+</tr>
+<tr>
+<td>4</td>
+<td>返回键</td>
+</tr>
+<tr>
+<td>24</td>
+<td>增加音量</td>
+</tr>
+<tr>
+<td>25</td>
+<td>降低音量</td>
+</tr>
+<tr>
+<td>26</td>
+<td>电源键</td>
+</tr>
+<tr>
+<td>82</td>
+<td>菜单键</td>
+</tr>
+<tr>
+<td>164</td>
+<td>静音</td>
+</tr>
+</tbody></table>
+<h2 id="更多"><a href="#更多" class="headerlink" title="更多"></a>更多</h2><p>以上仅列举开发调试常用命令，详情请看Android 开发者用户指南。<br><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIuYW5kcm9pZC5nb29nbGUuY24vc3R1ZGlvL2NvbW1hbmQtbGluZS9hZGI=">https://developer.android.google.cn/studio/command-line/adb<i class="fa fa-external-link-alt"></i></span></p>
 ]]></content>
+      <tags>
+        <tag>刷机</tag>
+        <tag>android</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MIUI养老指南</title>
+    <url>/2020/04/05/android/</url>
+    <content><![CDATA[<blockquote class="blockquote-center">
+<p>愿你刷机半生，归来仍是MIUI！</p>
+
+</blockquote>
+<a id="more"></a>
+<h2 id="ROM"><a href="#ROM" class="headerlink" title="ROM"></a>ROM</h2><p>申请解BL锁：<span class="exturl" data-url="aHR0cDovL3d3dy5taXVpLmNvbS91bmxvY2sv">http://www.miui.com/unlock/<i class="fa fa-external-link-alt"></i></span><br>MIUI卡刷包：<span class="exturl" data-url="aHR0cHM6Ly93d3cubWl1aS5jb20vZG93bmxvYWQuaHRtbA==">https://www.miui.com/download.html<i class="fa fa-external-link-alt"></i></span><br>MIUI线刷包：<span class="exturl" data-url="aHR0cHM6Ly93d3cubWl1aS5jb20vc2h1YWppLTM5My5odG1s">https://www.miui.com/shuaji-393.html<i class="fa fa-external-link-alt"></i></span><br>小米刷机工具：<span class="exturl" data-url="aHR0cHM6Ly93d3cueGlhb21pZmxhc2guY29tLw==">https://www.xiaomiflash.com/<i class="fa fa-external-link-alt"></i></span><br>小米刷机工具售后版：<span class="exturl" data-url="aHR0cHM6Ly9taWZsYXNocHJvLmNvbS8=">https://miflashpro.com/<i class="fa fa-external-link-alt"></i></span></p>
+<h2 id="REC"><a href="#REC" class="headerlink" title="REC"></a>REC</h2><p>Team Win Recovery Project（TWRP）是一个开放源码软件的定制Recovery镜像，主要作用包括刷机，备份，恢复等。<br>①根据手机型号下载recovery.img：<span class="exturl" data-url="aHR0cHM6Ly90d3JwLm1lL0RldmljZXMv">https://twrp.me/Devices/<i class="fa fa-external-link-alt"></i></span><br>②用ADB命令刷入recovery.img<br>③电源键+音量加键进入恢复模式</p>
+<blockquote>
+<p>注意：<br>Ⅰ.第一次重启须重启到恢复模式，系统可能会首次启动时替换第三方rec<br>Ⅱ.进恢复模式需要输入屏幕锁则说明data分区处于加密状态。取消强制加密以后，格式化加密分区，从而使该分区处于未加密状态。<br>Ⅲ.EDL模式就是高通9008模式</p>
+</blockquote>
+<h2 id="Magisk"><a href="#Magisk" class="headerlink" title="Magisk"></a>Magisk</h2><p>Magisk可以获取手机的root权限，在不修改系统的情况下实现一些系统性的功能，实现完全自由化的手机自定义功能。<br>①下载安装包MagiskManager.apk和卡刷包Magisk.zip：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RvcGpvaG53dS9NYWdpc2svcmVsZWFzZXM=">https://github.com/topjohnwu/Magisk/releases<i class="fa fa-external-link-alt"></i></span><br>②安装MagiskManager.apk<br>③进入恢复模式刷入Magisk.zip<br>④重启打开MagiskManager检查Magisk安装情况<br>⑤成功则可以刷入各种Magisk模块包</p>
+<blockquote>
+<p>☑保持强制加密：data分区未解锁<br>☑保留AVB2.0/dm-verity：system分区未解锁</p>
+</blockquote>
+<blockquote>
+<p>注意：Magisk模块导致系统无法开机时<br>Ⅰ进入恢复模式<br>Ⅱ进入文件管理器打开路径/data/adb/modules<br>Ⅲ删除对应模块的文件夹</p>
+</blockquote>
+<h2 id="Xposed"><a href="#Xposed" class="headerlink" title="Xposed"></a>Xposed</h2><p>xposed框架是一款开源框架，其功能是可以在不修改APK的情况下影响程序运行(修改系统)的框架服务，基于它可以制作出许多功能强大的模块，且在功能不冲突的情况下同时运作。<br>①下载安装包EdXposedManager.apk：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0VsZGVyRHJpdmVycy9FZFhwb3NlZE1hbmFnZXIvcmVsZWFzZXM=">https://github.com/ElderDrivers/EdXposedManager/releases<i class="fa fa-external-link-alt"></i></span><br>下载Magisk模块包riru-core.zip：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1Jpa2thQXBwcy9SaXJ1L3JlbGVhc2Vz">https://github.com/RikkaApps/Riru/releases<i class="fa fa-external-link-alt"></i></span><br>下载Magisk模块包EdXposed.zip：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0VsZGVyRHJpdmVycy9FZFhwb3NlZC9yZWxlYXNlcw==">https://github.com/ElderDrivers/EdXposed/releases<i class="fa fa-external-link-alt"></i></span></p>
+<blockquote>
+<p>注意：<br>SandHook版：应用启动速度快，几乎不影响系统流畅度<br>YAHFA版：稳定性好，极少出现应用崩溃、卡死、黑屏等问题</p>
+</blockquote>
+<p>②安装EdXposedManage.apk<br>③打开MagiskManager刷入Magisk模块包magisk-riru-core.zip和EdXposed-release.zip<br>④重启打开EdXposedManager检查EdXposed安装情况<br>⑤成功则可以安装各种Xposed模块应用</p>
+<h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><p>microG（模拟google全家桶服务）：<span class="exturl" data-url="aHR0cHM6Ly9taWNyb2cub3JnL2Rvd25sb2FkLmh0bWw=">https://microg.org/download.html<i class="fa fa-external-link-alt"></i></span><br>APKPure（下载play版应用，可跨地区）：<span class="exturl" data-url="aHR0cHM6Ly9hcGtwdXJlLmNvbS8=">https://apkpure.com<i class="fa fa-external-link-alt"></i></span><br>RootExplorer（Pie版，已汉化）：<span class="exturl" data-url="aHR0cHM6Ly9zaGFyZS53ZWl5dW4uY29tLzVwcnhBZTU=">https://share.weiyun.com/5prxAe5<i class="fa fa-external-link-alt"></i></span><br>DisableApp（冻结应用，已汉化，需要root）：<span class="exturl" data-url="aHR0cHM6Ly9zaGFyZS53ZWl5dW4uY29tLzVjSkRUbmg=">https://share.weiyun.com/5cJDTnh<i class="fa fa-external-link-alt"></i></span></p>
+]]></content>
+      <tags>
+        <tag>android</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>原码、反码、补码和移码</title>
+    <url>/2020/04/16/byte/</url>
+    <content><![CDATA[<blockquote class="blockquote-center">
+<p>一个数在计算机中的二进制表示形式,叫做这个数的机器数。机器数是最高位存放符号, 正数为0, 负数为1。带符号位的机器数对应的数值称为机器数的真值。</p>
+
+</blockquote>
+<a id="more"></a>
+<h2 id="原码"><a href="#原码" class="headerlink" title="原码"></a>原码</h2><p>正数是其二进制本身<br>负数 符号位为1，数值部分为其绝对值的二进制</p>
+<h2 id="反码"><a href="#反码" class="headerlink" title="反码"></a>反码</h2><p>正数 原码相同<br>负数 符号位为1，数值部分是原码取反</p>
+<h2 id="补码"><a href="#补码" class="headerlink" title="补码"></a>补码</h2><p>正数 原码相同<br>负数 符号位为1，数值部分是原码取反，末位加1</p>
+<h2 id="移码"><a href="#移码" class="headerlink" title="移码"></a>移码</h2><p>符号位取反的补码</p>
+]]></content>
+      <tags>
+        <tag>机器数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>header()函数</title>
+    <url>/2020/06/25/header/</url>
+    <content><![CDATA[<blockquote class="blockquote-center">
+<p>详细介绍一下PHP中header()函数的几种用法</p>
+
+</blockquote>
+<a id="more"></a>
+
+<p>header() 函数向客户端发送原始的 HTTP 报头。</p>
+<h2 id="声明content-type"><a href="#声明content-type" class="headerlink" title="声明content-type"></a>声明content-type</h2><figure class="highlight php"><table><tr><td class="code"><pre><span class="line">header(<span class="string">&#x27;content-type:text/html;charset=utf-8&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="返回response状态码"><a href="#返回response状态码" class="headerlink" title="返回response状态码"></a>返回response状态码</h2><figure class="highlight php"><table><tr><td class="code"><pre><span class="line">header(<span class="string">&#x27;HTTP/1.1 404 Not Found&#x27;</span>);</span><br><span class="line">header(<span class="string">&#x27;Status::404 Not Found&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="跳转页面"><a href="#跳转页面" class="headerlink" title="跳转页面"></a>跳转页面</h2><figure class="highlight php"><table><tr><td class="code"><pre><span class="line">header(<span class="string">&#x27;Location:https://24blog.ml/&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="延迟跳转"><a href="#延迟跳转" class="headerlink" title="延迟跳转"></a>延迟跳转</h2><figure class="highlight php"><table><tr><td class="code"><pre><span class="line">header(<span class="string">&#x27;Refresh: 3; url=https://24blog.ml/&#x27;</span>);</span><br><span class="line">header(<span class="string">&#x27;Refresh:3;&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="控制浏览器缓存"><a href="#控制浏览器缓存" class="headerlink" title="控制浏览器缓存"></a>控制浏览器缓存</h2><figure class="highlight php"><table><tr><td class="code"><pre><span class="line">header(<span class="string">&quot;Expires: Mon, 26 Jul 1997 05:00:00 GMT&quot;</span>);  <span class="comment">//内容过期时间</span></span><br><span class="line">header(<span class="string">&quot;Last-Modified: &quot;</span> . gmdate(<span class="string">&quot;D, d M Y H:i:s&quot;</span>) . <span class="string">&quot;GMT&quot;</span>);  <span class="comment">//标记内容最后修改时间</span></span><br><span class="line">header(<span class="string">&quot;Cache-Control: no-cache, must-revalidate&quot;</span>);  <span class="comment">//强制不缓存</span></span><br><span class="line">header(<span class="string">&quot;Pragma: no-cache&quot;</span>);  <span class="comment">//禁止本页被缓存</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="下载附件"><a href="#下载附件" class="headerlink" title="下载附件"></a>下载附件</h2><figure class="highlight php"><table><tr><td class="code"><pre><span class="line">header(<span class="string">&quot;Content-type:application/pdf&quot;</span>);  <span class="comment">//设置附件类型</span></span><br><span class="line">header(<span class="string">&quot;Content-Disposition:attachment;filename=&#x27;downloaded.pdf&#x27;&quot;</span>);  <span class="comment">//文件将被称为 downloaded.pdf</span></span><br><span class="line">readfile(<span class="string">&quot;original.pdf&quot;</span>);  <span class="comment">//PDF 源在 original.pdf 中</span></span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>PHP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>I Have a Dream</title>
+    <url>/2020/03/11/hello-world/</url>
+    <content><![CDATA[<p>我的愿望是</p>
+<a id="more"></a>
+<p>世界和平！！！ <mark class="label default">标签</mark> primary success info warning danger</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Oracle体系结构</title>
+    <url>/2020/04/15/oracle1/</url>
+    <content><![CDATA[<blockquote class="blockquote-center">
+<p>整理学习笔记</p>
+
+</blockquote>
+<a id="more"></a>
+<h2 id="Oracle-服务器"><a href="#Oracle-服务器" class="headerlink" title="Oracle 服务器"></a>Oracle 服务器</h2><p>是一个具有高性能和高可靠性面向对象关系型数据库管理系统。Oracle 服务器同运行在操作系统下的很多程序一样，通过在后台运行一组可执行程序、在内存中开辟程序运行的存储区域并在磁盘上存储数据来进行运作。</p>
+<blockquote>
+<p>Oracle Server（oracle服务器）=Instance（实例）+Database（数据库）</p>
+</blockquote>
+<h2 id="Oracle实例"><a href="#Oracle实例" class="headerlink" title="Oracle实例"></a>Oracle实例</h2><p>是一种数据库的访问机制，由内存结构和后台进程组成，一个实例在其生命周期内只能装载和打开一个数据库。</p>
+<blockquote>
+<p>Instance（实例）=SGA（内存结构）+Background Process（ 后台进程）</p>
+</blockquote>
+<h3 id="SGA（System-Global-Area-系统全局区）"><a href="#SGA（System-Global-Area-系统全局区）" class="headerlink" title="SGA（System Global Area 系统全局区）"></a>SGA（System Global Area 系统全局区）</h3><p>是一组包含一个Oracle实例的数据和控制信息的共享内存结构，在实例启动时分配，关闭时释放，用于存储数据库信息的内存区。</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> sga;  <span class="comment">-- 查看系统全局区大小</span></span><br></pre></td></tr></table></figure>
+<p><strong>Shared Pool（共享池）</strong><br>库高速缓冲区：</p>
+<ul>
+<li>共享SQL区存放每条被缓存的sql语句中的语法分析结果和执行结果。</li>
+<li>私有SQL区存放用户信息，例如sql语句的绑定变量、环境、会话等。</li>
+</ul>
+<p>字典高速缓冲区：存放着系统内部管理所需要的数据字典信息，例如用户名，数据对象和权限等。</p>
+<p><strong>Database Buffer Cache（数据高速缓存区）</strong><br>存放oracle系统最近访问过的数据块。用户发起请求时会先在数据高速缓存区中查找，找不到时会将数据从数据文件中读出来，放入高速缓存区中再返回给用户。</p>
+<p><strong>Redo Log Buffer（重做日志缓存区）</strong><br>存放记录oracle系统进行修改操作的日志信息，这些日志信息由LGWR写入重做日志组。</p>
+<p>Large Pool（大型池）<br>用于为大内存操作提供相对独立的内存空间，替分担共享池压力。</p>
+<p>Java Pool（java池）<br>存放java虚拟机。只有当应用程序需要在数据库中运行java存储程序时，才需要java池。</p>
+<h3 id="PGA（Program-Global-Area-程序全局区）"><a href="#PGA（Program-Global-Area-程序全局区）" class="headerlink" title="PGA（Program Global Area 程序全局区）"></a>PGA（Program Global Area 程序全局区）</h3><p>是一个私有内存区域，包含服务器进程或后台进程的相关数据和控制信息<br>在一个服务进程启动时创建的，只能被拥有它的那个服务进程所访问。</p>
+<h3 id="后台进程"><a href="#后台进程" class="headerlink" title="后台进程"></a>后台进程</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> pid,username,program <span class="keyword">from</span> V$process</span><br><span class="line"> <span class="keyword">where</span> background=<span class="string">&#x27;1&#x27;</span> <span class="keyword">order</span> <span class="keyword">by</span> program;  <span class="comment">-- 查看后台进程</span></span><br></pre></td></tr></table></figure>
+<p><strong>DBWR/DBWn（Database Write Process 数据写入进程）</strong><br>管理数据缓冲区，负责将脏数据写入数据文件，触发条件：</p>
+<ul>
+<li>脏数据缓冲区达到限额</li>
+<li>定时时间到</li>
+<li>出现检查点</li>
+</ul>
+<p><strong>LGWR（Log Write Process 日志写入进程）</strong><br>负责将重做日志缓冲区的日志数据写入日志文件，触发条件：</p>
+<ul>
+<li>提交事务</li>
+<li>DBWR向磁盘写入脏数据</li>
+<li>切换写入日志文件</li>
+<li>日志缓冲区达到限额</li>
+<li>定时时间到</li>
+</ul>
+<p><strong>PMON（Process Monitor Process 进程监控进程）</strong><br>监控其他进程状态，清理出现故障的进程。</p>
+<p><strong>SMON（System Monitor Process 系统监控进程）</strong><br>数据库启动时执行恢复工作的强制性进程。</p>
+<p><strong>CKPT（检查点进程）</strong><br>负责更新控制文件和数据文件的头文件的检查点信息和触发DBWn写脏数据到磁盘。</p>
+<blockquote>
+<p>注意：实例启动时，这以上五个进程必须启动，若有进程没能成功启动则实例启动失败。</p>
+</blockquote>
+<p>ARCn（归档进程）<br>数据库在归档模式下，系统才会启动ARCn进程。在日志组写满被覆盖前，将其读出写入归档日志文件中。</p>
+<h2 id="Oracle数据库"><a href="#Oracle数据库" class="headerlink" title="Oracle数据库"></a>Oracle数据库</h2><p><strong>数据文件</strong><br>用于存放数据库全部数据。</p>
+<p><strong>控制文件</strong><br>记录了数据库的物理结构，例如数据库名、数据库建立日期、数据文件与日志文件的名字和位置等。</p>
+<p><strong>日志文件</strong><br>记录对数据所作的修改，保护数据库以防止故障。</p>
+<ul>
+<li>重做日志文件：用来循环记录数据库改变的操作系统文件。</li>
+<li>归档日志文件：重做日志文件的备份，用于保护数据不丢失。</li>
+</ul>
+<p>初始化参数文件<br>是一个二进制文件，记录了数据库的基本参数信息，例如数据库名、控制文件所在路径、日志缓冲大小等。</p>
+<p>警告文件<br>记录错误信息和非默认的初始化参数值等，用来诊断和排查。</p>
+<p>跟踪文件<br>存放后台进程和服务器进程的跟踪信息，用来诊断和排查。</p>
+<p>口令文件<br>存放特定用户的口令。</p>
+]]></content>
+      <tags>
+        <tag>oracle</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Oracle 导入导出</title>
+    <url>/2020/06/04/oracle10/</url>
+    <content><![CDATA[<blockquote class="blockquote-center">
+<p>整理学习笔记</p>
+
+</blockquote>
+<a id="more"></a>
+<p>Conn sys as sysdba<br>Alter user scott account unlock;<br>Alter user scott identified by 123;</p>
+<p>导出：<br>表方式：导出某一用户下的指定表，如果要导出别人用户下的表：create session,exp_full_database角色，，imp_full_database角色<br> Scott.emp,scott.dept<br>exp scott/123 file=d:\backup\tb.dmp tables=(emp,dept)<br>用户方式：导出某一用户下的所有对象，<br>exp scott/123 file=d:\backup\user.dmp owner=(scott)<br>表空间方式：导出指定表空间中的所有对象<br>全库方式：导出整个数据库中所有的对象 system ,sys<br>exp system/12345678 file=d:\backup\db.dmp full=y<br>导入：<br>表方式：将所有指定的表导入到导入到某一用户中<br>imp scott/123 file=d:\backup\tb.dmp<br>用户方式：把某个用户的所有对象导入到该用户下<br>imp scott/123 file=d:\backup\user.dmp<br>表空间方式：被授予权限的用户将一组表空间从一个数据库移动到另一个数据库中<br>全库方式：导入整个数据库中的所有对象<br>Imp system/12345678 file=d:\backup\db.dmp full=y</p>
+]]></content>
+      <tags>
+        <tag>oracle</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Oracle启动与关闭</title>
+    <url>/2020/04/16/oracle2/</url>
+    <content><![CDATA[<blockquote class="blockquote-center">
+<p>整理学习笔记</p>
+
+</blockquote>
+<a id="more"></a>
+<h2 id="数据库的四种状态"><a href="#数据库的四种状态" class="headerlink" title="数据库的四种状态"></a>数据库的四种状态</h2><p><strong>shutdown（完全关闭）</strong><br>关闭数据库。</p>
+<p><strong>nomount（未加载）</strong><br>启动实例不加载数据库，打开初始化参数文件，没打开控制文件。</p>
+<p><strong>mount（已加载）</strong><br>启动实例、加载数据库并保持数据库的关闭状态，打开控制文件，没打开数据文件和日志文件。</p>
+<p><strong>open（完全打开）</strong><br>打开数据文件和日志文件，数据库正常访问。</p>
+<h3 id="启动数据库"><a href="#启动数据库" class="headerlink" title="启动数据库"></a>启动数据库</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">startup 数据库状态;         <span class="comment">-- 在shutdown模式下，直接跳到某个状态</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> 数据库状态;  <span class="comment">-- 必须按顺序启动，不能越级，不能反方向</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="关闭数据库的四种方式"><a href="#关闭数据库的四种方式" class="headerlink" title="关闭数据库的四种方式"></a>关闭数据库的四种方式</h2><table>
+<thead>
+<tr>
+<th>关闭方式</th>
+<th>允许新链接</th>
+<th>等待会话进程结束</th>
+<th>等待活动事务结束</th>
+<th>强制检查时间点和关闭文件</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>normal</td>
+<td></td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr>
+<td>transactional</td>
+<td></td>
+<td></td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr>
+<td>immediate</td>
+<td></td>
+<td></td>
+<td></td>
+<td>√</td>
+</tr>
+<tr>
+<td>abort</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<hr>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">shutdown normal;  <span class="comment">-- 正常的关闭方式</span></span><br></pre></td></tr></table></figure>
+<p>在执行以上代码后，oracle将会执行以下操作：</p>
+<ul>
+<li>阻止任何用户建立新的会话连接</li>
+<li>等待活动事务的主动提交或者回滚</li>
+<li>等待当前所有正在连接的用户主动断开连接</li>
+<li>当所有的用户都断开连接后，关闭数据库</li>
+<li>如果有用户没有断开连接，那么数据库无法关闭</li>
+</ul>
+<hr>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">shutdown transactional;  <span class="comment">-- 事务关闭方式</span></span><br></pre></td></tr></table></figure>
+<p>在执行以上代码后，oracle将会执行以下操作：</p>
+<ul>
+<li>阻止任何用户建立新的会话连接和开始新的活动事物</li>
+<li>等待正在运行的活动事务提交或者回滚</li>
+<li>当所有的活动事物都提交完毕，将用户会话连接断开，关闭数据库</li>
+<li>如果有事务没有提交或者回滚，那么数据库无法关闭</li>
+</ul>
+<hr>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">shutdown immediate;  <span class="comment">-- 立即关闭方式</span></span><br></pre></td></tr></table></figure>
+<p>在执行以上代码后，oracle将会执行以下操作：</p>
+<ul>
+<li>阻止任何用户建立新的会话连接和开始新的活动事物</li>
+<li>将未完成的活动事物回滚</li>
+<li>中断所有会话连接</li>
+<li>关闭数据库</li>
+</ul>
+<hr>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">shutdown abort;  <span class="comment">-- 终止关闭方式</span></span><br></pre></td></tr></table></figure>
+<p>在执行以上代码后，oracle将会执行以下操作：</p>
+<ul>
+<li>阻止任何用户建立新的会话连接和开始新的活动事物</li>
+<li>中断用户会话连接和活动事务</li>
+<li>立即关闭数据库</li>
+<li>可能丢失数据信息，影响数据库的完整性</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>oracle</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Oracle控制文件</title>
+    <url>/2020/04/17/oracle3/</url>
+    <content><![CDATA[<blockquote class="blockquote-center">
+<p>整理学习笔记</p>
+
+</blockquote>
+<a id="more"></a>
+<h2 id="CONTROL-FILES"><a href="#CONTROL-FILES" class="headerlink" title="CONTROL_FILES"></a>CONTROL_FILES</h2><p>Oracle 控制文件为二进制文件，初始化大小由CREATE DATABASE指定。<br>一个控制文件只能连接一个数据库，多个控制文件互为镜像，在mount阶段被读取，open阶段一直被使用。<br>控制文件中包含的内容：</p>
+<ul>
+<li>数据库的名字、ID、创建的时间戳</li>
+<li>表空间的名字</li>
+<li>重做日志文件、数据文件的位置、个数、名字</li>
+<li>重做日志的Sequence号码</li>
+<li>检查点的信息</li>
+<li>撤销段的开始或结束</li>
+<li>归档信息</li>
+<li>备份信息</li>
+</ul>
+<h2 id="查询控制文件路径"><a href="#查询控制文件路径" class="headerlink" title="查询控制文件路径"></a>查询控制文件路径</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">value</span> <span class="keyword">from</span> V$parameter <span class="keyword">where</span> <span class="keyword">name</span>=<span class="string">&#x27;control_files&#x27;</span>;</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">name</span> <span class="keyword">from</span> V$<span class="keyword">controlfile</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="模拟控制文件损坏后的恢复（一）"><a href="#模拟控制文件损坏后的恢复（一）" class="headerlink" title="模拟控制文件损坏后的恢复（一）"></a>模拟控制文件损坏后的恢复（一）</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">backup</span> <span class="keyword">controlfile</span> <span class="keyword">to</span> <span class="keyword">trace</span> <span class="keyword">as</span> <span class="string">&#x27;D:\CONTROL.TRC&#x27;</span>;  <span class="comment">-- 备份控制文件</span></span><br><span class="line">shutdown immediate;          <span class="comment">-- 关闭数据库</span></span><br><span class="line">host del ...\CONTROL01.TRC;  <span class="comment">-- 删除控制文件，模拟控制文件损坏</span></span><br><span class="line">startup nomount;             <span class="comment">-- 启动nomount模式</span></span><br></pre></td></tr></table></figure>
+<p>打开D:\CONTROL.TRC，复制创建控制文件语句，删除注释和空行，保存代码到 D:\temp.sql</p>
+<figure class="highlight diff"><figcaption><span>temp.sql</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="deletion">- -- ******</span></span><br><span class="line">CREATE......</span><br><span class="line">LOGFILE......</span><br><span class="line">DATAFILE......</span><br><span class="line"><span class="deletion">- -- ******</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">start</span> D:\temp.sql;    <span class="comment">-- 执行创建控制文件语句</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">open</span>;  <span class="comment">-- 打开数据库</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="模拟控制文件损坏后的恢复（二）"><a href="#模拟控制文件损坏后的恢复（二）" class="headerlink" title="模拟控制文件损坏后的恢复（二）"></a>模拟控制文件损坏后的恢复（二）</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">backup</span> <span class="keyword">controlfile</span> <span class="keyword">to</span> <span class="string">&#x27;D:\CONTROL.CTL&#x27;</span>;  <span class="comment">-- 备份控制文件为二进制文件</span></span><br><span class="line">shutdown immediate;                          <span class="comment">-- 立即关闭数据库</span></span><br><span class="line">host del ...\CONTROL01.TRC;                  <span class="comment">-- 删除控制文件，模拟损坏控制文件</span></span><br><span class="line">host copy D:\CONTROL.CTL ...\CONTROL01.TRC;  <span class="comment">-- 复制控制文件到原路径</span></span><br><span class="line">startup nomount;                             <span class="comment">-- 启动nomount模式</span></span><br><span class="line">recover database using <span class="keyword">backup</span> <span class="keyword">controlfile</span>;   <span class="comment">-- 使用备份控制文件恢复数据库</span></span><br><span class="line">...REDO01.log|REDO02.log|REDO03.log          <span class="comment">-- 使用当前使用的日志文件</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">open</span> <span class="keyword">resetlogs</span>;               <span class="comment">-- 打开数据库，重置重做日志</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="控制文件的移动、删除、多元化（多重映像，多路复用）"><a href="#控制文件的移动、删除、多元化（多重映像，多路复用）" class="headerlink" title="控制文件的移动、删除、多元化（多重映像，多路复用）"></a>控制文件的移动、删除、多元化（多重映像，多路复用）</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">system</span> <span class="keyword">set</span> control_files=</span><br><span class="line"> <span class="string">&#x27;...CONTROL01.CTL&#x27;</span>,</span><br><span class="line"> <span class="string">&#x27;D:\CONTROL.CTL&#x27;</span>,</span><br><span class="line"> <span class="string">&#x27;......&#x27;</span>                           <span class="comment">-- 设置控制文件的路径</span></span><br><span class="line"> <span class="keyword">scope</span>=<span class="keyword">spfile</span>;</span><br><span class="line">shutdown immediate;                 <span class="comment">-- 关闭数据库</span></span><br><span class="line">host move|del|copy D:\CONTROL.TRC;  <span class="comment">-- 移动、删除、复制控制文件</span></span><br><span class="line">startup;                            <span class="comment">-- 打开数据库</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>oracle</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Oracle日志文件</title>
+    <url>/2020/04/21/oracle4/</url>
+    <content><![CDATA[<blockquote class="blockquote-center">
+<p>整理学习笔记</p>
+
+</blockquote>
+<a id="more"></a>
+<h2 id="联机重做日志"><a href="#联机重做日志" class="headerlink" title="联机重做日志"></a>联机重做日志</h2><p>记录了对数据库修改的信息，包括用户对数据修改和数据库管理员对数据库结构的修改。它主要用于在发生故障的时候和数据库备份文件配合恢复数据库。<br>每个数据库至少有两个日志文件组，每组至少包含1个日志成员，同一组的日志成员内容信息相同，存放位置不同。<br>联机重做日志文件写入规则：LGWR进程任意时刻只写入一组日志文件组，LGWR进程负责把重做日志缓冲区中的数据写入到当前日志文件组中，当第一个日志文件组达到一定数量时就会停止写入，转向写入第二个日志文件，以循环的方式写入日志文件组。</p>
+<h3 id="查询日志文件组信息"><a href="#查询日志文件组信息" class="headerlink" title="查询日志文件组信息"></a>查询日志文件组信息</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">group</span><span class="comment">#,members,status,archived from V$log;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>status</strong></p>
+<ul>
+<li>current：当前正在写入的日志文件组。</li>
+<li>active：处于活动状态，但没有使用。该文件中内容尚未归档，或文件中的数据没有全部写入数据文件。一旦实例需要恢复，必须借助该文件中保存的内容。</li>
+<li>inactive：非活动状态，可能已经归档完，当前处于空闲状态。</li>
+<li>unused：从未使用过的日志组，有可能是新添加的，该联机重做日志文件组的文件从未被写入过数据。</li>
+</ul>
+<h3 id="查询日志文件信息"><a href="#查询日志文件信息" class="headerlink" title="查询日志文件信息"></a>查询日志文件信息</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> V$<span class="keyword">logfile</span>;</span><br></pre></td></tr></table></figure>
+<p><strong>status</strong></p>
+<ul>
+<li>空白：正在被使用。</li>
+<li>stale：内容是不完全的。</li>
+<li>invalid：不可以被访问的。</li>
+<li>delete：不再有用了。</li>
+</ul>
+<h3 id="添加日志文件组"><a href="#添加日志文件组" class="headerlink" title="添加日志文件组"></a>添加日志文件组</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">add</span> <span class="keyword">logfile</span></span><br><span class="line"> (<span class="string">&#x27;D:\REDO04.log&#x27;</span>,</span><br><span class="line"> <span class="string">&#x27;......&#x27;</span>)    <span class="comment">-- 存放路径</span></span><br><span class="line"> <span class="keyword">size</span> <span class="number">10</span>M;    <span class="comment">-- 文件大小</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="添加日志文件组成员"><a href="#添加日志文件组成员" class="headerlink" title="添加日志文件组成员"></a>添加日志文件组成员</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">add</span> <span class="keyword">logfile</span> <span class="keyword">member</span></span><br><span class="line"> <span class="string">&#x27;D:\REDO01B.log&#x27;</span> <span class="keyword">to</span> <span class="keyword">group</span> <span class="number">1</span>,</span><br><span class="line"> <span class="string">&#x27;......&#x27;</span> <span class="keyword">to</span> <span class="keyword">group</span> n;    <span class="comment">-- 存放路径，所属日志文件组</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="更改日志文件"><a href="#更改日志文件" class="headerlink" title="更改日志文件"></a>更改日志文件</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">shutdown immediate;     <span class="comment">-- 关闭数据库</span></span><br><span class="line">host move ...\REDO01.log D:\REDO01A.log;  <span class="comment">-- 移动日志文件</span></span><br><span class="line">startup mount;          <span class="comment">-- 启动mount模式</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">rename</span> <span class="keyword">file</span> <span class="string">&#x27;...\REDO01.log&#x27;</span> <span class="keyword">to</span> <span class="string">&#x27;D:\REDO01A.log&#x27;</span>;  <span class="comment">-- 更改文件路径</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">open</span>;    <span class="comment">-- 打开数据库</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="切换日志文件组"><a href="#切换日志文件组" class="headerlink" title="切换日志文件组"></a>切换日志文件组</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">system</span> <span class="keyword">switch</span> <span class="keyword">logfile</span>;    <span class="comment">-- 手动切换日志</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">system</span> checkpoint;        <span class="comment">-- 触发检查点</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="删除日志文件组成员"><a href="#删除日志文件组成员" class="headerlink" title="删除日志文件组成员"></a>删除日志文件组成员</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">drop</span> <span class="keyword">logfile</span> <span class="keyword">member</span> <span class="string">&#x27;D:\REDO01B.log&#x27;</span>;  <span class="comment">-- 删除日志文件组成员REDO01B.log</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：当前写入的日志组成员是不可删除的</p>
+</blockquote>
+<h3 id="删除日志文件组"><a href="#删除日志文件组" class="headerlink" title="删除日志文件组"></a>删除日志文件组</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">drop</span> <span class="keyword">logfile</span> <span class="keyword">group</span> <span class="number">4</span>;  <span class="comment">-- 删除日志文件组4</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：<br>current和active状态的日志文件组是不可删除的<br>inactive和unused状态的日志文组是可删除的</p>
+</blockquote>
+<h3 id="清除日志文件"><a href="#清除日志文件" class="headerlink" title="清除日志文件"></a>清除日志文件</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">clear</span> <span class="keyword">logfile</span> <span class="keyword">group</span> n;</span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">clear</span> <span class="keyword">unarchived</span> <span class="keyword">logfile</span> <span class="keyword">group</span> n;</span><br></pre></td></tr></table></figure>
+
+<h2 id="归档日志"><a href="#归档日志" class="headerlink" title="归档日志"></a>归档日志</h2><p>归档： 将联机重做日志转换为归档日志的过程叫归档。<br>归档日志：归档对应的日志称为归档日志。<br>当数据库自动对原来的日志文件进行备份叫归档模式，不需要对数据库进行自动备份叫非归档模式。</p>
+<h3 id="设置归档日志"><a href="#设置归档日志" class="headerlink" title="设置归档日志"></a>设置归档日志</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">archive log list;       <span class="comment">--查看数据库日志模式</span></span><br><span class="line">shutdown immediate;     <span class="comment">-- 关闭数据库</span></span><br><span class="line">startup mount;          <span class="comment">-- 启动mount模式</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">archivelog</span>|<span class="keyword">noarchivelog</span>;             <span class="comment">-- 设置归档模式|非归档模式</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">open</span>;    <span class="comment">-- 打开数据库</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">system</span> <span class="keyword">set</span> log_archive_max_processes=<span class="number">4</span>;       <span class="comment">-- 配置归档进程</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">system</span> <span class="keyword">set</span> log_archive_dest_1=<span class="string">&#x27;location=D:\archivlog mandatory&#x27;</span>;  <span class="comment">-- 更改归档路径</span></span><br><span class="line">    <span class="comment">-- optional:无论归档是否成功，都可以覆盖联机重做日志文件</span></span><br><span class="line">    <span class="comment">-- mandatory:只有归档成功后才覆盖原有联机重做日志文件</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">system</span> <span class="keyword">set</span> log_archive_min_succeed_dest=<span class="number">1</span>;    <span class="comment">-- 设置最小成功归档数</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">system</span> <span class="keyword">set</span> log_archive_dest_state_1=defer/<span class="keyword">enable</span>;  <span class="comment">-- 禁用/启用归档位置</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>oracle</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Oracle逻辑结构</title>
+    <url>/2020/04/30/oracle5/</url>
+    <content><![CDATA[<blockquote class="blockquote-center">
+<p>整理学习笔记</p>
+
+</blockquote>
+<a id="more"></a>
+<p>Oracle在逻辑存储结构上是一种层次结构，由表空间、段、区、数据块等组成。</p>
+<h2 id="database（数据库）"><a href="#database（数据库）" class="headerlink" title="database（数据库）"></a>database（数据库）</h2><p>数据库是按照数据结构来组织、存储和管理数据的仓库。</p>
+<hr>
+<h2 id="tablespaces（表空间）"><a href="#tablespaces（表空间）" class="headerlink" title="tablespaces（表空间）"></a>tablespaces（表空间）</h2><p>表空间是数据库中最高级别的逻辑结构，所有的数据库对象都存放在指定的表空间中。一个数据库由多个表空间组成，一个表空间只能属于一个数据库。</p>
+<h3 id="system（系统表空间）"><a href="#system（系统表空间）" class="headerlink" title="system（系统表空间）"></a>system（系统表空间）</h3><p>系统表空间是数据库最重要的 一个表空间，它不能被删除，它的状态不能是脱机状态。系统表空间存放着系统数据，如数据字典、数据库对象的定义、PL/SQL存储程序的代码、系统回滚段等。</p>
+<h3 id="sysaux（辅助系统表空间）"><a href="#sysaux（辅助系统表空间）" class="headerlink" title="sysaux（辅助系统表空间）"></a>sysaux（辅助系统表空间）</h3><p>辅助系统表空间是系统表空间的辅助表空间，主要存储除数据字典以外的其他对象。它减少了由数据库和DBA管理的表空间数量，降低了系统表空间的负荷。</p>
+<h3 id="temp（临时表空间）"><a href="#temp（临时表空间）" class="headerlink" title="temp（临时表空间）"></a>temp（临时表空间）</h3><p>临时表空间用于存储数据库运行所产生的临时数据。当数据库关闭后，临时表空间中所有数据将全部被清除。除临时表空间外，其他表空间都属于永久性表空间。</p>
+<h3 id="user（用户表空间）"><a href="#user（用户表空间）" class="headerlink" title="user（用户表空间）"></a>user（用户表空间）</h3><p>用户表空间，用于存放永久性用户对象的数据和私有信息。每个数据块都应该有一个用户表空间，以便在创建用户是将其分配给用户。<br>用来存放用户数据（存放应用系统所使用的数据库对象）<br>存放永久性的用户对象的数据和私有信息，因此也被称为数据表空间。每个数据库都应该有一个（或创建一个）用户表空间，以便在创建用户时将其分配给用户，否则将会使用SYSTEM表空间来保存数据，而这种做法是不好的。一般讲，系统用户使用SYSTEM表空间，而非系统用户使用USERS表空间</p>
+<h3 id="undo（撤销表空间）"><a href="#undo（撤销表空间）" class="headerlink" title="undo（撤销表空间）"></a>undo（撤销表空间）</h3><p>撤销表空间用于保存Oracle数据库撤销信息，为回滚事务而设计的。</p>
+<h3 id="example（示例表空间）"><a href="#example（示例表空间）" class="headerlink" title="example（示例表空间）"></a>example（示例表空间）</h3><p>示例表空间存放示例数据库的方案对象信息及其培训资料。</p>
+<hr>
+<h2 id="segments（段）"><a href="#segments（段）" class="headerlink" title="segments（段）"></a>segments（段）</h2><p>在表空间中，存在不同类型的数据库对象，如表、索引，它们以表空间的形式存在于表空间中。一个表空间包含多个段，一个段只能属于一个表空间。</p>
+<h3 id="数据段"><a href="#数据段" class="headerlink" title="数据段"></a>数据段</h3><p>数据段也称为表段，当创建一个表时，系统自动创建一个以该表的名字命名的数据段，以用来存储该表的所有数据。一个表空间中创建了几个表，该表空间中就由几个数据段。段的增大过程是通过增加区的个数而实现的。</p>
+<h3 id="索引段"><a href="#索引段" class="headerlink" title="索引段"></a>索引段</h3><p>当创建一个索引时，系统自动创建一个以该索引的名字命名的索引段，以用来存储该索引的所有数据。</p>
+<h3 id="临时段"><a href="#临时段" class="headerlink" title="临时段"></a>临时段</h3><p>临时段是数据库运行过程中自行创建的段。当一个SQL语句需要临时工作区时，系统自动创建临时段。一旦语句执行完毕，临时段的区间便退回给系统。</p>
+<h3 id="回滚段"><a href="#回滚段" class="headerlink" title="回滚段"></a>回滚段</h3><p>当一个事务开始处理时，系统为之分配回滚段，回滚段可以动态创建和撤销。回滚段包含了回滚信息，并在数据库恢复期间使用，以便为数据库提供读入一致性和回滚未提交的事务。</p>
+<hr>
+<h2 id="extents（区）"><a href="#extents（区）" class="headerlink" title="extents（区）"></a>extents（区）</h2><p>区是数据库分配存储空间的基本逻辑单位，数据库在为段分配空间时以区为单位进行。一个段由多个区组成，一个区由若干个连续数据块所组成。</p>
+<hr>
+<h2 id="data-block（数据块）"><a href="#data-block（数据块）" class="headerlink" title="data block（数据块）"></a>data block（数据块）</h2><p>数据块是数据库读写数据的最小逻辑单位，数据库在读写时以数据库为单位进行。</p>
+<hr>
+<h2 id="与数据文件的关系"><a href="#与数据文件的关系" class="headerlink" title="与数据文件的关系"></a>与数据文件的关系</h2><p>数据库逻辑结构的数据物理地存储在数据库的数据文件中。<br>数据文件有下列特征：</p>
+<ul>
+<li>一个数据库由一个或多个数据文件组成</li>
+<li>一个数据文件仅与一个数据库联系</li>
+<li>一旦建立，数据文件只增不减</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>oracle</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Oracle表空间</title>
+    <url>/2020/05/04/oracle6/</url>
+    <content><![CDATA[<blockquote class="blockquote-center">
+<p>整理学习笔记</p>
+
+</blockquote>
+<a id="more"></a>
+<h2 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> tablespace_name,<span class="keyword">status</span>,segment_space_management <span class="keyword">from</span> dba_tablespaces;</span><br><span class="line"><span class="keyword">select</span> tablespace_name,file_name,autoextensible <span class="keyword">from</span> dba_data_files;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">tablespace</span> tablespace_name</span><br><span class="line"><span class="keyword">datafile</span> <span class="string">&#x27;path/filename&#x27;</span> <span class="keyword">size</span> <span class="keyword">num</span>[K/M]  <span class="comment">-- 数据文件存放路径及大小</span></span><br><span class="line">[<span class="string">&#x27;path/filename&#x27;</span> <span class="keyword">size</span> <span class="keyword">num</span>[K/M]]         <span class="comment">-- 可以设置多个文件</span></span><br><span class="line">[<span class="keyword">autoextend</span> [<span class="keyword">on</span>/<span class="keyword">off</span>] <span class="keyword">next</span> <span class="keyword">num</span>[K/M]]     <span class="comment">-- 是否自动扩展，每次自动扩展大小</span></span><br><span class="line">[<span class="keyword">maxsize</span> [<span class="keyword">unlimited</span>] <span class="keyword">num</span>[K/M]           <span class="comment">-- 最大大小，unlimited为无上限</span></span><br><span class="line">[mininum <span class="keyword">extent</span> <span class="keyword">num</span>[K/M]]               <span class="comment">-- 区的最小限制</span></span><br><span class="line">[<span class="keyword">online</span>/<span class="keyword">offline</span>]                        <span class="comment">-- 在线/离线状态</span></span><br><span class="line">[<span class="keyword">extent</span> <span class="keyword">management</span> dictionary/<span class="keyword">local</span>[<span class="keyword">autoallocate</span>/<span class="keyword">uniform</span> <span class="keyword">size</span> <span class="keyword">num</span>[K/M]]</span><br><span class="line">    <span class="comment">-- 区的管理方式：dictionary字典管理/local本地管理</span></span><br><span class="line">    <span class="comment">-- 本地管理：自动分配（默认1M）/定制分配</span></span><br><span class="line">[<span class="keyword">segment</span> <span class="keyword">space</span> <span class="keyword">management</span> <span class="keyword">manual</span>/<span class="keyword">auto</span>]  <span class="comment">-- 段空间管理方式手动/自动</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：<br>段空间的管理方式是建立在本地化表空间管理方式的基础上<br>自动段空间管理方式不能用于创建临时表空间和系统表空间<br>oracle本身推荐使用自动段空间的管理方式来管理永久表空间</p>
+</blockquote>
+<hr>
+<h2 id="调整大小"><a href="#调整大小" class="headerlink" title="调整大小"></a>调整大小</h2><h3 id="设置为自动扩展"><a href="#设置为自动扩展" class="headerlink" title="设置为自动扩展"></a>设置为自动扩展</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">datafile</span> <span class="string">&#x27;...\USERS01.DBF&#x27;</span> <span class="keyword">autoextend</span> <span class="keyword">on</span> <span class="keyword">next</span> <span class="number">1</span>M;</span><br></pre></td></tr></table></figure>
+<h3 id="添加数据文件"><a href="#添加数据文件" class="headerlink" title="添加数据文件"></a>添加数据文件</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">tablespace</span> <span class="keyword">users</span> <span class="keyword">add</span> <span class="keyword">datafile</span> <span class="string">&#x27;...\USERS02.DBF&#x27;</span> <span class="keyword">size</span> <span class="number">10</span>M;</span><br></pre></td></tr></table></figure>
+<h3 id="重置数据文件大小"><a href="#重置数据文件大小" class="headerlink" title="重置数据文件大小"></a>重置数据文件大小</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">datafile</span> <span class="string">&#x27;...\USERS01.DBF&#x27;</span> <span class="keyword">resize</span> <span class="number">100</span>M;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="设置读写状态"><a href="#设置读写状态" class="headerlink" title="设置读写状态"></a>设置读写状态</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">tablespace</span> <span class="keyword">users</span> <span class="keyword">read</span> <span class="keyword">only</span>;     <span class="comment">-- 设置为只读状态</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">tablespace</span> <span class="keyword">users</span> <span class="keyword">read</span> write;    <span class="comment">-- 设置为读写状态</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：临时表空间数据文件不能为只读状态</p>
+</blockquote>
+<hr>
+<h2 id="设置联机状态"><a href="#设置联机状态" class="headerlink" title="设置联机状态"></a>设置联机状态</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">tablespace</span> <span class="keyword">users</span> <span class="keyword">offline</span>;    <span class="comment">-- 设置为脱机状态</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">tablespace</span> <span class="keyword">users</span> <span class="keyword">online</span>;     <span class="comment">-- 设置为联机状态</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：系统表空间、临时表空间不能设置为脱机状态</p>
+</blockquote>
+<hr>
+<h2 id="移动"><a href="#移动" class="headerlink" title="移动"></a>移动</h2><h3 id="表空间数据文件的移动"><a href="#表空间数据文件的移动" class="headerlink" title="表空间数据文件的移动"></a>表空间数据文件的移动</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">tablespace</span> <span class="keyword">users</span> <span class="keyword">offline</span>;          <span class="comment">-- 设置为脱机状态</span></span><br><span class="line">host move ...USERS01.DBF D:\USERS01.DBF  <span class="comment">-- 移动数据文件</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">tablespace</span> <span class="keyword">users</span> <span class="keyword">rename</span> <span class="keyword">datafile</span> <span class="string">&#x27;...USERS01.DBF&#x27;</span> <span class="keyword">to</span> <span class="string">&#x27;D:\ USERS01.DBF&#x27;</span>;  <span class="comment">-- 更改文件路径</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">tablespace</span> <span class="keyword">users</span> <span class="keyword">online</span>;          <span class="comment">-- 设置为联机状态</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="系统表空间数据文件的移动"><a href="#系统表空间数据文件的移动" class="headerlink" title="系统表空间数据文件的移动"></a>系统表空间数据文件的移动</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">shutdown immediate;     <span class="comment">-- 关闭数据库</span></span><br><span class="line">host move ...SYSTEM01.DBF D:\SYSTEM01.DBF    <span class="comment">-- 移动数据文件</span></span><br><span class="line">startup mount;          <span class="comment">-- 启动mount模式</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">rename</span> <span class="keyword">file</span> <span class="string">&#x27;...SYSTEM01.DBF&#x27;</span> <span class="keyword">to</span> <span class="string">&#x27;D:\SYSTEM01.DBF&#x27;</span>;  <span class="comment">-- 更改文件路径</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">open</span>;    <span class="comment">-- 打开数据库</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">drop</span> <span class="keyword">tablespace</span> <span class="keyword">users</span> <span class="keyword">including</span> <span class="keyword">contents</span> <span class="keyword">and</span> <span class="keyword">datafiles</span> <span class="keyword">cascade</span> <span class="keyword">constraints</span>;</span><br><span class="line">    <span class="comment">-- 删除表空间数据文件及关联的完整性约束</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：默认表空间不能被删除，只能更改默认表空间后才能删除。</p>
+</blockquote>
+<hr>
+<h2 id="创建临时表空间"><a href="#创建临时表空间" class="headerlink" title="创建临时表空间"></a>创建临时表空间</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">temporary</span> <span class="keyword">tablespace</span> otemp</span><br><span class="line">tempfile <span class="string">&#x27;D:\OTEMP.DBF&#x27;</span> <span class="keyword">size</span> <span class="number">10</span>M;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：临时表空间不能用自动段空间管理方式创建</p>
+</blockquote>
+<p>将HRTEMP1表空间设置为数据库的默认临时表空间<br>[alter database default temporary tablespace HRTEMP1; ]</p>
+<p>表空间的类型：<br>永久表空间（PERMANENT TABLESPACE）、<br>临时表空间（TEMPTABLESPACE）、<br>撤销表空间（UNDO TABLESPACE）、</p>
+<p>创建撤销表空间<br>为数据库创建一个撤销表空间HRUNDO1<br>Create UNDO tablespace HRUNDO1 datafile  <br>‘D:\app\danser\oradata\TablespaceTest01\HRUNDO1_1.dbf’ size 20M;</p>
+<p> alter system set undo_tablespace=’undotbs1’ scope=spfile;</p>
+]]></content>
+      <tags>
+        <tag>oracle</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Oracle备份与恢复</title>
+    <url>/2020/05/06/oracle7/</url>
+    <content><![CDATA[<blockquote class="blockquote-center">
+<p>整理学习笔记</p>
+
+</blockquote>
+<a id="more"></a>
+<p>如果数据库处于非归档模式，只能进行冷备份。<br>如果数据库处于归档模式，可以进行冷备份或热备份。</p>
+<h2 id="脱机备份"><a href="#脱机备份" class="headerlink" title="脱机备份"></a>脱机备份</h2><p>脱机备份（冷备份）：非归档模式下，数据库关闭状态中，对所有数据库文件的物理拷贝。<br>只能对整个数据库进行备份，不能针对某个表空间或数据文件进行备份，每次备份都需要备份数据库中的所有数据。<br>在对数据库进行恢复时，只能把数据恢复到最后一次备份点的时刻。</p>
+<h3 id="设置非归档模式"><a href="#设置非归档模式" class="headerlink" title="设置非归档模式"></a>设置非归档模式</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">archive log list;             <span class="comment">--查看日志模式</span></span><br><span class="line">shutdown immediate;           <span class="comment">-- 立即关闭数据库</span></span><br><span class="line">startup mount;                <span class="comment">-- 启动mount模式</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">noarchivelog</span>;  <span class="comment">-- 设置非归档模式</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">open</span>;    <span class="comment">-- 打开数据库</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="查询数据库文件路径"><a href="#查询数据库文件路径" class="headerlink" title="查询数据库文件路径"></a>查询数据库文件路径</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">name</span> <span class="keyword">from</span> V$<span class="keyword">controlfile</span>;  <span class="comment">-- 控制文件</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">Group</span><span class="comment">#,member from V$logfile;  -- 日志文件</span></span><br><span class="line"><span class="keyword">select</span> tablespace_name,file_name <span class="keyword">from</span> dba_data_files; <span class="comment">-- 数据文件</span></span><br><span class="line"><span class="keyword">show</span> parameter <span class="keyword">spfile</span>;    <span class="comment">-- 初始化参数文</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="脱机备份数据库文件"><a href="#脱机备份数据库文件" class="headerlink" title="脱机备份数据库文件"></a>脱机备份数据库文件</h3><figure class="highlight sql"><figcaption><span>backup.sql</span></figcaption><table><tr><td class="code"><pre><span class="line">conn sys/123456 as sysdba  <span class="comment">-- 连接数据库 用户名/密码</span></span><br><span class="line">shutdown immediate   <span class="comment">-- 立即关闭数据库</span></span><br><span class="line">host copy ...\oracle\oradata\orcl\*.* D:\backup  --复制数据库文件</span><br><span class="line">host copy ...\oracle\flash_recovery_area\orcl\CONTROL02.CTL D:\<span class="keyword">backup</span></span><br><span class="line">host copy ...\<span class="keyword">oracle</span>\product\<span class="number">11.2</span><span class="number">.0</span>\dbhome_1\<span class="keyword">database</span>\SPFILEORCL.ORA D:\<span class="keyword">backup</span></span><br><span class="line"><span class="keyword">startup</span>  <span class="comment">-- 打开数据库</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="把备份过程做成一键批处理"><a href="#把备份过程做成一键批处理" class="headerlink" title="把备份过程做成一键批处理"></a>把备份过程做成一键批处理</h3><figure class="highlight bash"><figcaption><span>backup.bat</span></figcaption><table><tr><td class="code"><pre><span class="line">...\oracle\product\11.2.0\dbhome_1\BIN\sqlplus /nolog @D:\backup\backup.sql</span><br><span class="line"><span class="built_in">exit</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="脱机还原"><a href="#脱机还原" class="headerlink" title="脱机还原"></a>脱机还原</h2><h3 id="脱机恢复到原路径"><a href="#脱机恢复到原路径" class="headerlink" title="脱机恢复到原路径"></a>脱机恢复到原路径</h3><figure class="highlight sql"><figcaption><span>recover.sql</span></figcaption><table><tr><td class="code"><pre><span class="line">conn sys/123456 as sysdba  <span class="comment">-- 连接数据库 用户名/密码</span></span><br><span class="line">shutdown immediate  <span class="comment">-- 立即关闭数据库</span></span><br><span class="line">host copy D:\<span class="keyword">backup</span>\*.* ...\<span class="keyword">oracle</span>\<span class="keyword">oradata</span>\orcl  <span class="comment">-- 复制备份文件</span></span><br><span class="line">host copy D:\<span class="keyword">backup</span>\CONTROL02.CTL ...\<span class="keyword">oracle</span>\flash_recovery_area\orcl</span><br><span class="line">host copy D:\<span class="keyword">backup</span>\SPFILEORCL.ORA ...\<span class="keyword">oracle</span>\product\<span class="number">11.2</span><span class="number">.0</span>\dbhome_1\<span class="keyword">database</span></span><br><span class="line"><span class="keyword">startup</span>  <span class="comment">-- 打开数据库</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="把恢复过程做成一键批处理"><a href="#把恢复过程做成一键批处理" class="headerlink" title="把恢复过程做成一键批处理"></a>把恢复过程做成一键批处理</h3><figure class="highlight bash"><figcaption><span>recover.bat</span></figcaption><table><tr><td class="code"><pre><span class="line">...\oracle\product\11.2.0\dbhome_1\BIN\sqlplus /nolog @D:\backup\recover.sql</span><br><span class="line"><span class="built_in">exit</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="脱机恢复到新路径"><a href="#脱机恢复到新路径" class="headerlink" title="脱机恢复到新路径"></a>脱机恢复到新路径</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">shutdown immediate  <span class="comment">-- 立即关闭数据库</span></span><br><span class="line">host copy D:\<span class="keyword">backup</span>\*.* ...\<span class="keyword">oracle</span>\<span class="keyword">oradata</span>\orcl  <span class="comment">-- 复制备份文件</span></span><br><span class="line">host copy D:\<span class="keyword">backup</span>\CONTROL02.CTL ...\<span class="keyword">oracle</span>\flash_recovery_area\orcl</span><br><span class="line">host copy D:\<span class="keyword">backup</span>\SPFILEORCL.ORA ...\<span class="keyword">oracle</span>\product\<span class="number">11.2</span><span class="number">.0</span>\dbhome_1\<span class="keyword">database</span></span><br><span class="line">host copy D:\<span class="keyword">backup</span>\users01.dbf D:\<span class="keyword">oracle</span>  <span class="comment">-- 复制备份文件到新路径</span></span><br><span class="line"><span class="keyword">startup</span> <span class="keyword">mount</span>  <span class="comment">-- 启动mount模式</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">rename</span> <span class="keyword">file</span> <span class="string">&#x27;...\USERS01.DBF&#x27;</span> <span class="keyword">to</span> <span class="string">&#x27;D:\oracle\USERS01.DBF&#x27;</span>;  <span class="comment">--更改文件路径</span></span><br><span class="line"><span class="comment">-- 如全部数据库文件换新路径，须全部更改文件路径</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">open</span>  <span class="comment">-- 打开数据库</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="联机备份"><a href="#联机备份" class="headerlink" title="联机备份"></a>联机备份</h2><p>归档模式下 数据库打开状态下进行备份，只需要备份常用的数据文件，而其他文件是通过冗余保护的。可以针对整个数据库，或着某个表空间，或者某个数据文件进行备份<br>Restore还原，修复损坏的或丢失的操作系统文件，就是把备份的数据文件复制到原来位置，替换已经损坏或丢失的数据文件<br>Recover 恢复，是指修复后，把从备份开始到数据文件崩溃这段时间内没有提交的数据从归档日志（重做日志）写回刚刚修复的数据文件中。</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">archive log list;       <span class="comment">--查看数据库日志模式</span></span><br><span class="line">shutdown immediate;     <span class="comment">-- 关闭数据库</span></span><br><span class="line">startup mount;          <span class="comment">-- 启动mount模式</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">archivelog</span>;         <span class="comment">-- 设置归档模式</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">open</span>;    <span class="comment">-- 启动数据库</span></span><br><span class="line"><span class="keyword">select</span> file_id,tablespace_name,file_name <span class="keyword">from</span> dba_data_files;   <span class="comment">-- 查询数据文件信息</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> V$<span class="keyword">backup</span>;  <span class="comment">-- 查询数据文件备份状态</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">tablespace</span> <span class="keyword">users</span> <span class="keyword">begin</span> <span class="keyword">backup</span>;  <span class="comment">-- 将表空间置于联机备份模式</span></span><br><span class="line">host copy ...\USERS01.DBF D:\<span class="keyword">backup</span>\USERS01.DBF   <span class="comment">-- 使用操作系统命令复制表空间的数据文件到其他备份呢磁盘中</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">tablespace</span> <span class="keyword">users</span> <span class="keyword">end</span> <span class="keyword">backup</span>;  <span class="comment">-- 将表空间退出联机备份模式</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">system</span> <span class="keyword">archive</span> <span class="keyword">log</span> <span class="keyword">current</span>;   <span class="comment">-- 将当前的重做日志文件的信息写入到归档日志中</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> V$<span class="keyword">backup</span>;  <span class="comment">-- 再使用数据字典V$backup确认数据文件的备份状态</span></span><br></pre></td></tr></table></figure>
+<h2 id="联机还原"><a href="#联机还原" class="headerlink" title="联机还原"></a>联机还原</h2><h3 id="example1"><a href="#example1" class="headerlink" title="example1"></a>example1</h3><p>所需恢复的数据文件不属于系统表空间或还原表空间，磁盘介质损坏/数据文件崩溃或丢失，但是未造成数据库关闭，恢复过程中，满足：保证数据库关闭时间最小</p>
+<h4 id="表空间"><a href="#表空间" class="headerlink" title="表空间"></a>表空间</h4><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> tablespace_name,file_name,online_status <span class="keyword">from</span> dba_data_files;	  <span class="comment">-- 使用数据字典dba_tablespaces 查看要恢复的表空间是否处在脱机状态</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">tablespace</span> <span class="keyword">users</span> <span class="keyword">offline</span>;如果该表空间处在联机状态，要把置为脱机</span><br><span class="line">host copy 操作系统命令将备份的数据文件复制到原有位置</span><br><span class="line"><span class="keyword">alter</span>   <span class="keyword">rename</span> <span class="keyword">to</span> …. 重命名数据文件</span><br><span class="line"><span class="keyword">Recover</span> <span class="keyword">tablespace</span> 表空间名</span><br></pre></td></tr></table></figure>
+
+<h4 id="数据文件"><a href="#数据文件" class="headerlink" title="数据文件"></a>数据文件</h4><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> file_id,tablespace_name,file_name <span class="keyword">from</span> dba_data_files;	使用数据字典dba_data_files获取要恢复的数据文件及它所在的表空间的关系；</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">file</span><span class="comment">#,name,status from V$datafile;  -- 也可以通过V$datafile确认要修复的数据文件是否处在脱机状态</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">datafile</span> n <span class="keyword">offline</span>;把要修复的这个数据文件设置为脱机状态，</span><br><span class="line">host copy <span class="comment">-- 使用操作系统命令将备份的数据文件复制到原有位置，如果是原有路径的磁盘坏了</span></span><br><span class="line"><span class="keyword">alter</span>   <span class="keyword">rename</span> <span class="keyword">to</span> …. 重命名数据文件</span><br><span class="line"><span class="keyword">recover</span> <span class="keyword">datafile</span> n; 使用recover将所有提交的数据从归档日志写入已修复的数据文件</span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> n <span class="keyword">online</span>;</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="example2"><a href="#example2" class="headerlink" title="example2"></a>example2</h4><p>例2 所需恢复的数据文件不属于系统表空间或还原空间，介质损坏/数据文件丢失，但是已经造成了数据库的关闭，恢复：条件：希望数据库关闭时间必须保持最小。<br>首要目的：要让数据库正常打开，不要影响其他工作</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">startup mount</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">file</span><span class="comment">#,name,status from V$datafile; -- 通过V$datafile去查看要修复的数据文件的信息</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">datafile</span> n <span class="keyword">offline</span>; </span><br><span class="line"><span class="keyword">Alter</span> <span class="keyword">database</span> <span class="keyword">open</span>;</span><br><span class="line">Host copy 把备份的数据文件复制到原有路径</span><br><span class="line">recover datafile ….;</span><br><span class="line">用<span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">datafile</span> n <span class="keyword">online</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="example3"><a href="#example3" class="headerlink" title="example3"></a>example3</h4><p>例3想办法去恢复那些没有备份的数据文件<br>所需恢复的数据文件不属于系统表空间或还原表空间，由于介质损坏或用户错误导致数据文件丢失，但是这个数据文件从来没有备份过，但是从数据文件创建以来所有的日志文件都完好。</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">startup mount；</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">file</span><span class="comment">#,name,status from V$datafile;  -- V$datafile确认数据文件是脱机还是联机状态</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">datafile</span> n <span class="keyword">offline</span>;  数据文件脱机</span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">open</span> ;</span><br><span class="line"><span class="keyword">Select</span> * <span class="keyword">from</span> V$recover_file;</span><br><span class="line"><span class="keyword">Alter</span> <span class="keyword">database</span> <span class="keyword">create</span> <span class="keyword">datafile</span> ‘……丢失文件路径..’;</span><br><span class="line">Recover datafile ‘……丢失文件路径…’;</span><br><span class="line"><span class="keyword">Alter</span> <span class="keyword">database</span> <span class="keyword">datafile</span> n <span class="keyword">online</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="example4"><a href="#example4" class="headerlink" title="example4"></a>example4</h4><p>所需恢复的数据文件属于系统表空间或还原表空间，或者整个数据库或大多数的数据文件都要恢复，，数据库允许短暂的关闭<br>假设系统表空间所在的磁盘损坏，导致系统数据文件丢失，幸好之前做了文件的热备份，且日志文件保存完整，请你做数据库的全恢复</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> file_id,tablespace_name,file_name <span class="keyword">from</span> dba_data_files;	</span><br><span class="line">shutdown immediate;</span><br><span class="line">startup mount</span><br><span class="line">host copy <span class="comment">-- 使用操作系统命令把备份的复制回来，如果是磁盘损坏，要复制到新的路径，</span></span><br><span class="line">startup mount;</span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">rename</span> <span class="keyword">file</span>   <span class="string">&#x27;/oradata/PMPTGDB/users01.dbf&#x27;</span>   <span class="keyword">to</span>   <span class="string">&#x27;/media/hdd1/oradata/PMPTGDB/users01.dbf &#x27;</span>;  <span class="comment">--之后要alter 命令更改数据文件的路径</span></span><br><span class="line">Recover database;</span><br><span class="line"><span class="keyword">Alter</span> <span class="keyword">database</span> <span class="keyword">open</span>;</span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>oracle</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Oracle RMAN备份与恢复</title>
+    <url>/2020/05/06/oracle8/</url>
+    <content><![CDATA[<blockquote class="blockquote-center">
+<p>整理学习笔记</p>
+
+</blockquote>
+<a id="more"></a>
+<h2 id="RMAN"><a href="#RMAN" class="headerlink" title="RMAN"></a>RMAN</h2><p>RMAN（Recovery Manager）是一种用于备份(backup)、还原(restore)和恢复(recover)数据库的Oracle工具。它能够备份整个数据库或数据库部件，如表空间、数据文件、控制文件、归档文件以及参数文件。</p>
+<blockquote>
+<p>在归档模式中，数据库支持open状态进行RMAN备份，但在恢复时，需要使用到归档重做日志，才能使数据库恢复到一致性状态。</p>
+</blockquote>
+<h2 id="FORMAT参数"><a href="#FORMAT参数" class="headerlink" title="FORMAT参数"></a>FORMAT参数</h2><table>
+<thead>
+<tr>
+<th>变量</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>%c</td>
+<td>复制编号，1开始，最大不超过256</td>
+</tr>
+<tr>
+<td>%d</td>
+<td>数据库名</td>
+</tr>
+<tr>
+<td>%D</td>
+<td>当前时间中的日</td>
+</tr>
+<tr>
+<td>%e</td>
+<td>归档日志文件序列号</td>
+</tr>
+<tr>
+<td>%f</td>
+<td>绝对文件编号</td>
+</tr>
+<tr>
+<td>%h</td>
+<td>归档日志线程号</td>
+</tr>
+<tr>
+<td>%I</td>
+<td>数据库ID</td>
+</tr>
+<tr>
+<td>%M</td>
+<td>当前时间中的月</td>
+</tr>
+<tr>
+<td>%n</td>
+<td>8位长度的数据库名，不足“X</td>
+</tr>
+<tr>
+<td>%N</td>
+<td>表空间名</td>
+</tr>
+<tr>
+<td>%p</td>
+<td>备份集中备份片段编号</td>
+</tr>
+<tr>
+<td>%s</td>
+<td>备份集号</td>
+</tr>
+<tr>
+<td>%t</td>
+<td>时间戳</td>
+</tr>
+<tr>
+<td>%T</td>
+<td>当前时间的年月日</td>
+</tr>
+<tr>
+<td>%u</td>
+<td>8位随机唯一码</td>
+</tr>
+<tr>
+<td>%U</td>
+<td>复合format</td>
+</tr>
+<tr>
+<td>%Y</td>
+<td>当前时间中的年</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>注意：如果在BACKUP命令中没有指定FORMAT选项，则RMAN默认使用%U为备份片段命名。</p>
+</blockquote>
+<h2 id="非归档模式下rman备份恢复"><a href="#非归档模式下rman备份恢复" class="headerlink" title="非归档模式下rman备份恢复"></a>非归档模式下rman备份恢复</h2><h3 id="备份"><a href="#备份" class="headerlink" title="备份"></a>备份</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> test1 (a <span class="built_in">number</span>) <span class="keyword">tablespace</span> <span class="keyword">users</span>;  <span class="comment">-- 创建一个表</span></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> test1 <span class="keyword">values</span>(<span class="number">1</span>);  <span class="comment">-- 插入数据</span></span><br><span class="line"><span class="keyword">commit</span>;                       <span class="comment">-- 提交</span></span><br><span class="line">archive log list;             <span class="comment">--查看日志模式</span></span><br><span class="line">shutdown immediate;           <span class="comment">-- 立即关闭数据库</span></span><br><span class="line">startup mount;                <span class="comment">-- 启动mount模式</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">noarchivelog</span>;  <span class="comment">-- 设置非归档模式</span></span><br><span class="line">$ rman target/                <span class="comment">-- 打开RMAN工具</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">run&#123;</span><br><span class="line"> allocate channel c1 type disk;</span><br><span class="line"> allocate channel c2 type disk;    <span class="comment">-- 分配通道</span></span><br><span class="line"> <span class="keyword">backup</span> <span class="keyword">database</span> filesperset <span class="number">2</span> <span class="keyword">format</span> <span class="string">&#x27;D:\full_%n_%T_%t_%p_%s.bak&#x27;</span>;  <span class="comment">-- 备份数据库</span></span><br><span class="line"> <span class="keyword">backup</span> <span class="keyword">spfile</span> <span class="keyword">format</span> <span class="string">&#x27;D:\spfile_%n_%U_%T.bak&#x27;</span>;               <span class="comment">--备份初始化参数文件</span></span><br><span class="line"> <span class="keyword">backup</span> <span class="keyword">archivelog</span> <span class="keyword">all</span> <span class="keyword">format</span> <span class="string">&#x27;D:\arch_%d_%T_%s_%p.bak&#x27;</span>;      <span class="comment">-- 备份归档日志文件</span></span><br><span class="line"> <span class="keyword">backup</span> <span class="keyword">current</span> <span class="keyword">controlfile</span> <span class="keyword">format</span> <span class="string">&#x27;D:\ctl_%d_%T_%s_%p.bak&#x27;</span>;  <span class="comment">-- 备份控制文件</span></span><br><span class="line"> <span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">open</span>;    <span class="comment">-- 打开数据库</span></span><br><span class="line"> <span class="keyword">release</span> channel c1;     <span class="comment">-- 释放通道</span></span><br><span class="line"> <span class="keyword">release</span> channel c2;</span><br><span class="line">&#125;</span><br><span class="line">exit    <span class="comment">-- 退出rman工具</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="恢复（重做日志未被覆盖）"><a href="#恢复（重做日志未被覆盖）" class="headerlink" title="恢复（重做日志未被覆盖）"></a>恢复（重做日志未被覆盖）</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> test2 (a <span class="built_in">number</span>) <span class="keyword">tablespace</span> <span class="keyword">users</span>;  <span class="comment">-- 创建一个表</span></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> test2 <span class="keyword">values</span>(<span class="number">1</span>);  <span class="comment">-- 插入数据</span></span><br><span class="line"><span class="keyword">commit</span>;                       <span class="comment">-- 提交</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">system</span> <span class="keyword">switch</span> <span class="keyword">logfile</span>;  <span class="comment">-- 切换日志</span></span><br><span class="line">shutdown immediate;           <span class="comment">-- 立即关闭数据库</span></span><br><span class="line">host del ...\USERS01.DBF      <span class="comment">-- 删除数据文件，模拟数据文件损坏</span></span><br><span class="line">$ rman target/                <span class="comment">-- 打开RMAN工具</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">run&#123;</span><br><span class="line"> startup mount;       <span class="comment">-- 启动mount模式</span></span><br><span class="line"> <span class="keyword">restore</span> <span class="keyword">database</span>;    <span class="comment">-- 利用备份文件还原数据库</span></span><br><span class="line"> recover database;    <span class="comment">-- 利用重做日志文件恢复数据库</span></span><br><span class="line"> <span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">open</span> <span class="keyword">resetlogs</span>;  <span class="comment">-- 打开数据库，重置重做日志</span></span><br><span class="line">&#125;</span><br><span class="line">exit    <span class="comment">-- 退出rman工具</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> test1;</span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> test2;    <span class="comment">-- 查询两个表</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="恢复（重做日志已被覆盖）"><a href="#恢复（重做日志已被覆盖）" class="headerlink" title="恢复（重做日志已被覆盖）"></a>恢复（重做日志已被覆盖）</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">system</span> <span class="keyword">switch</span> <span class="keyword">logfile</span>;</span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">system</span> <span class="keyword">switch</span> <span class="keyword">logfile</span>;</span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">system</span> <span class="keyword">switch</span> <span class="keyword">logfile</span>;  <span class="comment">-- 多次切换日志</span></span><br><span class="line">shutdown immediate;           <span class="comment">-- 立即关闭数据库</span></span><br><span class="line">host del ...\USERS01.DBF      <span class="comment">-- 删除数据文件，模拟数据文件损坏</span></span><br><span class="line">$ rman target/                <span class="comment">-- 打开RMAN工具</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">run&#123;</span><br><span class="line"> startup nomount;         <span class="comment">-- 启动nomount模式</span></span><br><span class="line"> <span class="keyword">restore</span> <span class="keyword">controlfile</span> <span class="keyword">from</span> <span class="string">&#x27;D:\CTL_***.BAK&#x27;</span>;  <span class="comment">-- 还原控制文件</span></span><br><span class="line"> <span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">mount</span>;    <span class="comment">-- 启动mount模式</span></span><br><span class="line"> <span class="keyword">restore</span> <span class="keyword">database</span>;        <span class="comment">-- 利用备份文件还原数据库</span></span><br><span class="line"> recover database;        <span class="comment">-- 利用重做日志文件恢复数据库</span></span><br><span class="line"> <span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">open</span> <span class="keyword">resetlogs</span>;    <span class="comment">-- 打开数据库，重置重做日志</span></span><br><span class="line">&#125;</span><br><span class="line">exit    <span class="comment">-- 退出RMAN工具</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> test1;</span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> test2;    <span class="comment">-- 查询两个表</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="归档模式下rman备份恢复"><a href="#归档模式下rman备份恢复" class="headerlink" title="归档模式下rman备份恢复"></a>归档模式下rman备份恢复</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">archive log list;             <span class="comment">--查看日志模式</span></span><br><span class="line">shutdown immediate;           <span class="comment">-- 立即关闭数据库</span></span><br><span class="line">startup mount;                <span class="comment">-- 启动mount模式</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">archivelog</span>;  <span class="comment">-- 设置归档模式</span></span><br><span class="line">$ rman target/                <span class="comment">-- 打开RMAN工具</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">run&#123;</span><br><span class="line"> allocate channel c1 type disk;</span><br><span class="line"> allocate channel c2 type disk;    <span class="comment">-- 分配通道</span></span><br><span class="line"> <span class="keyword">backup</span> <span class="keyword">database</span> filesperset <span class="number">2</span> <span class="keyword">format</span> <span class="string">&#x27;D:\full_%n_%T_%t_%p_%s.bak&#x27;</span>;  <span class="comment">-- 备份数据库</span></span><br><span class="line"> <span class="keyword">backup</span> <span class="keyword">spfile</span> <span class="keyword">format</span> <span class="string">&#x27;D:\spfile_%n_%U_%T.bak&#x27;</span>;               <span class="comment">--备份初始化参数文件</span></span><br><span class="line"> sql &#x27;<span class="keyword">alter</span> <span class="keyword">system</span> <span class="keyword">archive</span> <span class="keyword">log</span> <span class="keyword">current</span><span class="string">&#x27;;    -- 手动切换日志</span></span><br><span class="line"><span class="string"> backup archivelog all format &#x27;</span>D:\arch_%d_%T_%s_%p.bak<span class="string">&#x27;;      -- 备份归档日志文件</span></span><br><span class="line"><span class="string"> backup current controlfile format &#x27;</span>D:\ctl_%d_%T_%s_%p.bak<span class="string">&#x27;;  -- 备份控制文件</span></span><br><span class="line"><span class="string"> alter database open;    -- 打开数据库</span></span><br><span class="line"><span class="string"> release channel c1;     -- 释放通道</span></span><br><span class="line"><span class="string"> release channel c2;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">exit    -- 退出rman工具</span></span><br></pre></td></tr></table></figure>
+
+
+<p>ex1</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> test1 (a <span class="built_in">number</span>) <span class="keyword">tablespace</span> <span class="keyword">users</span>;  <span class="comment">-- 创建一个表</span></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> test1 <span class="keyword">values</span>(<span class="number">1</span>);  <span class="comment">-- 插入数据</span></span><br><span class="line"><span class="keyword">commit</span>;                       <span class="comment">-- 提交</span></span><br><span class="line">shutdown immediate;           <span class="comment">-- 立即关闭数据库</span></span><br><span class="line">host del ...      <span class="comment">-- 删除所有的数据文件和控制文件，模拟文件损坏</span></span><br><span class="line">$ rman target/                <span class="comment">-- 打开RMAN工具</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">run&#123;</span><br><span class="line"> startup nomount;         <span class="comment">-- 启动nomount模式</span></span><br><span class="line"> <span class="keyword">restore</span> <span class="keyword">controlfile</span> <span class="keyword">from</span> <span class="string">&#x27;D:\CTL_***.BAK&#x27;</span>;  <span class="comment">-- 还原控制文件</span></span><br><span class="line"> <span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">mount</span>;    <span class="comment">-- 启动mount模式</span></span><br><span class="line"> <span class="keyword">restore</span> <span class="keyword">database</span>;        <span class="comment">-- 利用备份文件还原数据库</span></span><br><span class="line"> recover database;        <span class="comment">-- 利用重做日志文件恢复数据库</span></span><br><span class="line"> <span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">open</span> <span class="keyword">resetlogs</span>;    <span class="comment">-- 打开数据库，重置重做日志</span></span><br><span class="line">&#125;</span><br><span class="line">exit    <span class="comment">-- 退出RMAN工具</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> test1;    <span class="comment">-- 查询表</span></span><br></pre></td></tr></table></figure>
+
+<p>ex2<br>示例二：新建表空间对应的数据文件丢失<br>场景：新建表空间good，然后在其上新建表wjq2，并插入三条数据，然后模拟断电，删除good表空间所对应的数据文件，在此情况下，做RMAN的完全恢复（因是新建的表空间，故没有相关的数据文件备份）。</p>
+<p>create tablespace test datafile ‘…/TEST01.DBF’ size 10M;<br>create table test2 (a number) tablespace test;</p>
+<p>insert into test2 values(1);<br>commit;<br>alter system switch logfile;   – 第一条数据，提交，归档</p>
+<p>insert into test2 values(2);<br>commit;                       – 第二条数据，提交，不归档</p>
+<p>insert into test2 values(3);  – 第三条数据，不提交，不归档</p>
+<p>shutdown immediate;           – 立即关闭数据库<br>host del …/TEST01.DBF      – 删除表空间所对应的数据文件，模拟文件损坏<br>startup<br>– ORA-01110: data file 7: ‘…/TEST01.DBF’<br>select * from v$recover_file;<br>$ rman target/</p>
+<p>RMAN&gt; run{<br> sql ‘alter database datafile 7 offline’;<br> alter database open;<br> restore datafile 7;<br> recover datafile 7;<br> sql ‘alter database datafile 7 online’;<br>}<br>exit<br>select * from test2;</p>
+<p>ex3<br>示例三：数据文件丢失，且所在的磁盘损坏<br>场景：在seiang用户下，创建wjq3表，隶属于good表空间，并插入三条数据，之后突然断电，且其所在碰盘坏掉了。<br>create table test3 (a number) tablespace test;<br>insert into test3 values(1);<br>commit;<br>alter system switch logfile;   – 第一条数据，提交，归档</p>
+<p>insert into test3 values(2);<br>commit;                       – 第二条数据，提交，不归档</p>
+<p>insert into test3 values(3);  – 第三条数据，不提交，不归档</p>
+<p>shutdown immediate;           – 立即关闭数据库<br>host del …/TEST01.DBF      – 删除表空间所对应的数据文件，模拟文件损坏<br>startup<br>– ORA-01110: data file 7: ‘…/TEST01.DBF’<br>select * from v$recover_file;<br>$ rman target/</p>
+<p>RMAN&gt; run{<br> sql ‘alter database datafile 7 offline’;<br> alter database open;<br> set newname for datafile 7 to ‘/u01/app/oracle/oradata/OraDB11g/datadir/good01.dbf’;<br> restore datafile 7;<br> switch datafile 7;<br> recover datafile 7;<br> sql ‘alter database datafile 7 online’;<br>}<br>exit<br>select * from test3;</p>
+]]></content>
+      <tags>
+        <tag>oracle</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Oracle 闪回</title>
+    <url>/2020/06/04/oracle9/</url>
+    <content><![CDATA[<blockquote class="blockquote-center">
+<p>整理学习笔记</p>
+
+</blockquote>
+<a id="more"></a>
+<p>闪回技术是Oracle强大数据库备份恢复机制的一部分，在数据库发生逻辑错误的时候，闪回技术能提供快速且最小损失的恢复（多数闪回功能都能在数据库联机状态下完成）。需要注意的是，闪回技术旨在快速恢复逻辑错误，对于物理损坏或是介质丢失的错误，闪回技术就回天乏术了.<br>Oracle提供了四种可供使用的闪回技术（闪回查询，闪回删除，闪回归档，闪回数据库）<br>原理：当一个表删除时候，它不不是永久被删除了，而是被放置到了回收站中（recyclebin), 如果这个表在回收站中，我们可以通过flashback恢复回来。但是Oracle并不保证所有删除的表都能闪回回来。<br>闪回已经删除的表 ：<br>启用回收站功能：<br>alter system set recyclebin=on scope=spfile;（重启后生效）<br>查看回收站数据：show recyclebin<br>清空回收站：purge recyclebin<br>闪回在回收站中已经删除表：flashback table bonus to before drop ;<br>永久删除表：drop table bonus purge;</p>
+<p>闪回错误的DML操作：<br>启动行移动功能才能执行闪回表：<br> alter table scott.temp enable row movement;<br>闪回表：1）查询SCN:SYS连接，select dbms_flashback.get_system_change_number from dual;<br>                   闪回SCN所在的状态：flashback table scott.temp to scn 2315389;<br>             2）通过时间点闪回： flashback table scott.temp to timestamp to_timestamp(‘2020-05-21 11:33:00’,’yyyy-mm-dd hh24:mi:ss’);<br>闪回查询：select * from scott.temp as of timestamp to_timestamp(‘2020-05-21 11:33:00’,’yyyy-mm-dd hh24:mi:ss’);</p>
+<p>启用数据库闪回，RVWR（闪回写）后台进程将被启动，将按顺序将闪回数据库数据从闪回缓冲区中写入闪回数据库日志，，当执行flashback database命令时，将会使用这个闪回日志还原至数据块之前的映像，然后使用重做数据回滚至所需闪回的时间戳。<br>1、    配置数据库闪回<br>Select flashback_on from V$database;<br>Select pid,username,program from v$process where background=’1’;<br>启动数据库闪回功能：<br> Shutdown immediate<br> Startup mount<br>Alter database flashback on;<br>Alter system set db_flashback_retention_target=2880 scope=both;<br>Alter database open;<br>2、    shutdown immediate<br>startup mount<br>flashback database to timestamp to_timestamp ‘2020-05-26 16:30:00’,’yyyy-mm-dd hh24:mi:ss’);<br>alter database open resetlogs;</p>
+]]></content>
+      <tags>
+        <tag>oracle</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>网站性能优化</title>
+    <url>/2020/07/17/web/</url>
+    <content><![CDATA[<a id="more"></a>
+]]></content>
+  </entry>
+  <entry>
+    <title>XAMPP的安装及使用教程</title>
+    <url>/2020/03/30/xampp/</url>
+    <content><![CDATA[<blockquote class="blockquote-center">
+<p>XAMPP是一款集成了Apache+MYSQL+PHP的服务器系统开发套件，同时还包含了管理MySQL的工具phpMyAdmin，即可对MySQL进行可视化操作。</p>
+
+</blockquote>
+<a id="more"></a>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>官网下载地址： <span class="exturl" data-url="aHR0cHM6Ly93d3cuYXBhY2hlZnJpZW5kcy5vcmcvZG93bmxvYWQuaHRtbA==">https://www.apachefriends.org/download.html<i class="fa fa-external-link-alt"></i></span></p>
+<blockquote>
+<p>注意：修改安装路径，不要放到系统盘，默认安装到Program Files文件夹下可能需要修改写入权限。</p>
+</blockquote>
+<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><p>运行安装目录下的setup_xampp.bat初始化XAMPP，然后运行xampp-control.exe可以启动或停止apache、mysql等各个模块并可将其注册为系统服务。 </p>
+<h2 id="配置Apache"><a href="#配置Apache" class="headerlink" title="配置Apache"></a>配置Apache</h2><p>打开Apache的配置文件Apache(httpd.conf)，把端口80全部修改为8088</p>
+<figure class="highlight diff"><figcaption><span>httpd.conf</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="deletion">- Listen 80</span></span><br><span class="line"><span class="addition">+ Listen 8088</span></span><br><span class="line">...</span><br><span class="line"><span class="deletion">- ServerName localhost:80</span></span><br><span class="line"><span class="addition">+ ServerName localhost:8088</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：如果不修改，会与默认80端口产生冲突，可能导致浏览器不能正常使用。</p>
+</blockquote>
+<p>打开Apache的配置文件Apache(httpd-ssl.conf)，把端口443修改为4433</p>
+<figure class="highlight diff"><figcaption><span>httpd-ssl.conf</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="deletion">- Listen 443</span></span><br><span class="line"><span class="addition">+ Listen 4433</span></span><br><span class="line">...</span><br><span class="line"><span class="deletion">- &lt;VirtualHost _default_:443&gt;</span></span><br><span class="line"><span class="addition">+ &lt;VirtualHost _default_:4433&gt;</span></span><br><span class="line">...</span><br><span class="line"><span class="deletion">- ServerName www.example.com:443</span></span><br><span class="line"><span class="addition">+ ServerName www.example.com:4433</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="配置MySQL"><a href="#配置MySQL" class="headerlink" title="配置MySQL"></a>配置MySQL</h2><p>打开MySQL配置文件my.ini<br>把端口3306改为3366（如果端口3306不冲突，可以不修改）<br>把字符集设置为utf8（文件已有代码，但需要删除 # 取消注释）</p>
+<figure class="highlight diff"><figcaption><span>my.ini</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="deletion">- port=3306</span></span><br><span class="line"><span class="addition">+ port=3366</span></span><br><span class="line">...</span><br><span class="line"><span class="deletion">- ## UTF 8 Settings</span></span><br><span class="line"><span class="deletion">- #init-connect=\&#x27;SET NAMES utf8\&#x27;</span></span><br><span class="line"><span class="deletion">- #collation_server=utf8_unicode_ci</span></span><br><span class="line"><span class="deletion">- #character_set_server=utf8</span></span><br><span class="line"><span class="deletion">- #skip-character-set-client-handshake</span></span><br><span class="line"><span class="deletion">- #character_sets-dir=&quot;.../xampp/mysql/share/charsets&quot;</span></span><br><span class="line"><span class="addition">+ # UTF 8 Settings</span></span><br><span class="line"><span class="addition">+ init-connect=\&#x27;SET NAMES utf8\&#x27;</span></span><br><span class="line"><span class="addition">+ collation_server=utf8_unicode_ci</span></span><br><span class="line"><span class="addition">+ character_set_server=utf8</span></span><br><span class="line"><span class="addition">+ skip-character-set-client-handshake</span></span><br><span class="line"><span class="addition">+ character_sets-dir=&quot;.../xampp/mysql/share/charsets&quot;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：MySQL数据库默认字符集为latin1，在数据库中会造成中文乱码，在创建数据库和数据表时都要注意使用utf8字符集。</p>
+</blockquote>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>打开XAMPP控制面板，启动Apache、MySQL<br>在浏览器地址栏输入 <span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo4MDg4L2Rhc2hib2FyZC8=">http://localhost:8088/dashboard/<i class="fa fa-external-link-alt"></i></span> ，测试是否正常打开</p>
+<p>在XAMPP控制面板打开shell命令行，进入MySQL</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mysql -u root mysql            #root用户，无密码</span><br><span class="line">mysql -uroot -p123456 mysql    #root用户，密码123456</span><br></pre></td></tr></table></figure>
+
+<h2 id="修改MySQL密码"><a href="#修改MySQL密码" class="headerlink" title="修改MySQL密码"></a>修改MySQL密码</h2><p>按照默认的安装，MySQL是没有密码的，需要进行设置<br>打开Apache的配置文件phpMyAdmin(config.inc.php)，添加以下代码</p>
+<figure class="highlight diff"><figcaption><span>config.inc.php</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="addition">+ $cfg[&#x27;Servers&#x27;][$i][&#x27;DisableIS&#x27;] = true;</span></span><br></pre></td></tr></table></figure>
+<p>在浏览器地址栏输入 <span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo4MDg4L3BocG15YWRtaW4v">http://localhost:8088/phpmyadmin/<i class="fa fa-external-link-alt"></i></span><br>进入phpMyAdmin，修改root用户密码<br>打开Apache的配置文件phpMyAdmin(config.inc.php)，设置数据库用户密码</p>
+<figure class="highlight diff"><figcaption><span>config.inc.php</span></figcaption><table><tr><td class="code"><pre><span class="line">$cfg[&#x27;Servers&#x27;][$i][&#x27;user&#x27;] = &#x27;root&#x27;;</span><br><span class="line"><span class="deletion">- $cfg[&#x27;Servers&#x27;][$i][&#x27;password&#x27;] = &#x27;&#x27;;</span></span><br><span class="line"><span class="addition">+ $cfg[&#x27;Servers&#x27;][$i][&#x27;password&#x27;] = &#x27;数据库密码&#x27;;</span></span><br><span class="line">...</span><br><span class="line"><span class="deletion">- $cfg[&#x27;Servers&#x27;][$i][&#x27;controluser&#x27;] = &#x27;pma&#x27;;</span></span><br><span class="line"><span class="deletion">- $cfg[&#x27;Servers&#x27;][$i][&#x27;controlpass&#x27;] = &#x27;&#x27;;</span></span><br><span class="line"><span class="addition">+ $cfg[&#x27;Servers&#x27;][$i][&#x27;controluser&#x27;] = &#x27;root&#x27;;</span></span><br><span class="line"><span class="addition">+ $cfg[&#x27;Servers&#x27;][$i][&#x27;controlpass&#x27;] = &#x27;数据库密码&#x27;;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="修改根目录"><a href="#修改根目录" class="headerlink" title="修改根目录"></a>修改根目录</h2><p>Apache默认根目录是…/xampp/htdocs/，有需要可进行修改<br>打开Apache的配置文件Apache(httpd.conf)</p>
+<figure class="highlight diff"><figcaption><span>httpd.conf</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="deletion">- DocumentRoot &quot;.../xampp/htdocs&quot;</span></span><br><span class="line"><span class="deletion">- &lt;Directory &quot;.../xampp/htdocs&quot;&gt;</span></span><br><span class="line"><span class="addition">+ DocumentRoot &quot;d:/www&quot;</span></span><br><span class="line"><span class="addition">+ &lt;Directory &quot;d:/www&quot;&gt;</span></span><br></pre></td></tr></table></figure>
+<p>浏览器中访问 <span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo4MDg4Lw==">http://localhost:8088<i class="fa fa-external-link-alt"></i></span> 可打开根目录</p>
+<h2 id="添加映射目录"><a href="#添加映射目录" class="headerlink" title="添加映射目录"></a>添加映射目录</h2><p>Apache服务器目录可映射到其他目录，有需要可进行修改</p>
+<figure class="highlight diff"><figcaption><span>httpd.conf</span></figcaption><table><tr><td class="code"><pre><span class="line">&lt;IfModule alias_module&gt;</span><br><span class="line">...</span><br><span class="line"><span class="addition">+ Alias /project/ &quot;d:/project&quot;</span></span><br><span class="line">&lt;/IfModule&gt;</span><br><span class="line"></span><br><span class="line"><span class="addition">+ &lt;Directory &quot;d:/project&quot;&gt;</span></span><br><span class="line"><span class="addition">+  AllowOverride All</span></span><br><span class="line"><span class="addition">+  Options Indexes FollowSymLinks Includes ExecCGI</span></span><br><span class="line"><span class="addition">+  Require all granted</span></span><br><span class="line"><span class="addition">+ &lt;/Directory&gt;</span></span><br></pre></td></tr></table></figure>
+<p>浏览器中访问 <span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo4MDg4L3Byb2plY3Qv">http://localhost:8088/project/<i class="fa fa-external-link-alt"></i></span> 可打开映射目录</p>
+<h2 id="汉化"><a href="#汉化" class="headerlink" title="汉化"></a>汉化</h2><p>下载汉化包locale.zip：<span class="exturl" data-url="aHR0cHM6Ly9zaGFyZS53ZWl5dW4uY29tLzV3aHk2NXg=">https://share.weiyun.com/5why65x<i class="fa fa-external-link-alt"></i></span><br>解压后放入…/xampp文件夹，替换相应的文件夹<br>然后启动XAMPP，选择德语</p>
+]]></content>
+      <tags>
+        <tag>软件安装</tag>
+      </tags>
   </entry>
 </search>

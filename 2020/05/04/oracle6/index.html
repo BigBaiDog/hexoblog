@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="baidu-site-verification" content="g9SdPq6TUC">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="整理学习笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Oracle表空间">
+<meta property="og:url" content="http://example.com/2020/05/04/oracle6/index.html">
+<meta property="og:site_name" content="Blog">
+<meta property="og:description" content="整理学习笔记">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-05-04T04:00:21.000Z">
+<meta property="article:modified_time" content="2020-06-09T07:51:20.000Z">
+<meta property="article:author" content="BigBaiDog">
+<meta property="article:tag" content="oracle">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2020/05/04/oracle6/">
+
+
+<script data-pjax class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Oracle表空间 | Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">虾仁猪心</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-云盘">
+
+    <span class="exturl" data-url="aHR0cHM6Ly9mb3JldmVyaG9tZS5ncS8="><i class="fa fa-cloud fa-fw"></i>云盘</span>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2"><span class="nav-number">1.</span> <span class="nav-text">查询</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA"><span class="nav-number">2.</span> <span class="nav-text">创建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B0%83%E6%95%B4%E5%A4%A7%E5%B0%8F"><span class="nav-number">3.</span> <span class="nav-text">调整大小</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E4%B8%BA%E8%87%AA%E5%8A%A8%E6%89%A9%E5%B1%95"><span class="nav-number">3.1.</span> <span class="nav-text">设置为自动扩展</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E6%95%B0%E6%8D%AE%E6%96%87%E4%BB%B6"><span class="nav-number">3.2.</span> <span class="nav-text">添加数据文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E7%BD%AE%E6%95%B0%E6%8D%AE%E6%96%87%E4%BB%B6%E5%A4%A7%E5%B0%8F"><span class="nav-number">3.3.</span> <span class="nav-text">重置数据文件大小</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E8%AF%BB%E5%86%99%E7%8A%B6%E6%80%81"><span class="nav-number">4.</span> <span class="nav-text">设置读写状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E8%81%94%E6%9C%BA%E7%8A%B6%E6%80%81"><span class="nav-number">5.</span> <span class="nav-text">设置联机状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A7%BB%E5%8A%A8"><span class="nav-number">6.</span> <span class="nav-text">移动</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A8%E7%A9%BA%E9%97%B4%E6%95%B0%E6%8D%AE%E6%96%87%E4%BB%B6%E7%9A%84%E7%A7%BB%E5%8A%A8"><span class="nav-number">6.1.</span> <span class="nav-text">表空间数据文件的移动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B3%BB%E7%BB%9F%E8%A1%A8%E7%A9%BA%E9%97%B4%E6%95%B0%E6%8D%AE%E6%96%87%E4%BB%B6%E7%9A%84%E7%A7%BB%E5%8A%A8"><span class="nav-number">6.2.</span> <span class="nav-text">系统表空间数据文件的移动</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A0%E9%99%A4"><span class="nav-number">7.</span> <span class="nav-text">删除</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E4%B8%B4%E6%97%B6%E8%A1%A8%E7%A9%BA%E9%97%B4"><span class="nav-number">8.</span> <span class="nav-text">创建临时表空间</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="BigBaiDog"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">BigBaiDog</p>
+  <div class="site-description" itemprop="description">这是BigBaiDog的个人博客。</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2JpZ2JhaWRvZw==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;bigbaidog"><i class="fab fa-github fa-fw"></i>GitHub</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOjExOTQ0MjMxMjZAcXEuY29t" title="E-Mail → mailto:1194423126@qq.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93ZWliby5jb20vdS81MzQ5NzI4NDM1" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;5349728435"><i class="fab fa-weibo fa-fw"></i>Weibo</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93cGEucXEuY29tL21zZ3JkP3Y9MyZ1aW49MTE5NDQyMzEyNiZzaXRlPXFxJm1lbnU9eWVz" title="QQ → https:&#x2F;&#x2F;wpa.qq.com&#x2F;msgrd?v&#x3D;3&amp;uin&#x3D;1194423126&amp;site&#x3D;qq&amp;menu&#x3D;yes"><i class="fab fa-qq fa-fw"></i>QQ</span>
+      </span>
+  </div>
+
+
+<span id="jinrishici-sentence">正在加载今日诗词....</span>
+<script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL2JpZ2JhaWRvZw==" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/05/04/oracle6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="BigBaiDog">
+      <meta itemprop="description" content="这是BigBaiDog的个人博客。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Oracle表空间
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-05-04 12:00:21" itemprop="dateCreated datePublished" datetime="2020-05-04T12:00:21+08:00">2020-05-04</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-06-09 15:51:20" itemprop="dateModified" datetime="2020-06-09T15:51:20+08:00">2020-06-09</time>
+      </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.1k</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <blockquote class="blockquote-center">
+<p>整理学习笔记</p>
+
+</blockquote>
+<a id="more"></a>
+<h2 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> tablespace_name,<span class="keyword">status</span>,segment_space_management <span class="keyword">from</span> dba_tablespaces;</span><br><span class="line"><span class="keyword">select</span> tablespace_name,file_name,autoextensible <span class="keyword">from</span> dba_data_files;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">tablespace</span> tablespace_name</span><br><span class="line"><span class="keyword">datafile</span> <span class="string">&#x27;path/filename&#x27;</span> <span class="keyword">size</span> <span class="keyword">num</span>[K/M]  <span class="comment">-- 数据文件存放路径及大小</span></span><br><span class="line">[<span class="string">&#x27;path/filename&#x27;</span> <span class="keyword">size</span> <span class="keyword">num</span>[K/M]]         <span class="comment">-- 可以设置多个文件</span></span><br><span class="line">[<span class="keyword">autoextend</span> [<span class="keyword">on</span>/<span class="keyword">off</span>] <span class="keyword">next</span> <span class="keyword">num</span>[K/M]]     <span class="comment">-- 是否自动扩展，每次自动扩展大小</span></span><br><span class="line">[<span class="keyword">maxsize</span> [<span class="keyword">unlimited</span>] <span class="keyword">num</span>[K/M]           <span class="comment">-- 最大大小，unlimited为无上限</span></span><br><span class="line">[mininum <span class="keyword">extent</span> <span class="keyword">num</span>[K/M]]               <span class="comment">-- 区的最小限制</span></span><br><span class="line">[<span class="keyword">online</span>/<span class="keyword">offline</span>]                        <span class="comment">-- 在线/离线状态</span></span><br><span class="line">[<span class="keyword">extent</span> <span class="keyword">management</span> dictionary/<span class="keyword">local</span>[<span class="keyword">autoallocate</span>/<span class="keyword">uniform</span> <span class="keyword">size</span> <span class="keyword">num</span>[K/M]]</span><br><span class="line">    <span class="comment">-- 区的管理方式：dictionary字典管理/local本地管理</span></span><br><span class="line">    <span class="comment">-- 本地管理：自动分配（默认1M）/定制分配</span></span><br><span class="line">[<span class="keyword">segment</span> <span class="keyword">space</span> <span class="keyword">management</span> <span class="keyword">manual</span>/<span class="keyword">auto</span>]  <span class="comment">-- 段空间管理方式手动/自动</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：<br>段空间的管理方式是建立在本地化表空间管理方式的基础上<br>自动段空间管理方式不能用于创建临时表空间和系统表空间<br>oracle本身推荐使用自动段空间的管理方式来管理永久表空间</p>
+</blockquote>
+<hr>
+<h2 id="调整大小"><a href="#调整大小" class="headerlink" title="调整大小"></a>调整大小</h2><h3 id="设置为自动扩展"><a href="#设置为自动扩展" class="headerlink" title="设置为自动扩展"></a>设置为自动扩展</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">datafile</span> <span class="string">&#x27;...\USERS01.DBF&#x27;</span> <span class="keyword">autoextend</span> <span class="keyword">on</span> <span class="keyword">next</span> <span class="number">1</span>M;</span><br></pre></td></tr></table></figure>
+<h3 id="添加数据文件"><a href="#添加数据文件" class="headerlink" title="添加数据文件"></a>添加数据文件</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">tablespace</span> <span class="keyword">users</span> <span class="keyword">add</span> <span class="keyword">datafile</span> <span class="string">&#x27;...\USERS02.DBF&#x27;</span> <span class="keyword">size</span> <span class="number">10</span>M;</span><br></pre></td></tr></table></figure>
+<h3 id="重置数据文件大小"><a href="#重置数据文件大小" class="headerlink" title="重置数据文件大小"></a>重置数据文件大小</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">datafile</span> <span class="string">&#x27;...\USERS01.DBF&#x27;</span> <span class="keyword">resize</span> <span class="number">100</span>M;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="设置读写状态"><a href="#设置读写状态" class="headerlink" title="设置读写状态"></a>设置读写状态</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">tablespace</span> <span class="keyword">users</span> <span class="keyword">read</span> <span class="keyword">only</span>;     <span class="comment">-- 设置为只读状态</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">tablespace</span> <span class="keyword">users</span> <span class="keyword">read</span> write;    <span class="comment">-- 设置为读写状态</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：临时表空间数据文件不能为只读状态</p>
+</blockquote>
+<hr>
+<h2 id="设置联机状态"><a href="#设置联机状态" class="headerlink" title="设置联机状态"></a>设置联机状态</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">tablespace</span> <span class="keyword">users</span> <span class="keyword">offline</span>;    <span class="comment">-- 设置为脱机状态</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">tablespace</span> <span class="keyword">users</span> <span class="keyword">online</span>;     <span class="comment">-- 设置为联机状态</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：系统表空间、临时表空间不能设置为脱机状态</p>
+</blockquote>
+<hr>
+<h2 id="移动"><a href="#移动" class="headerlink" title="移动"></a>移动</h2><h3 id="表空间数据文件的移动"><a href="#表空间数据文件的移动" class="headerlink" title="表空间数据文件的移动"></a>表空间数据文件的移动</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">tablespace</span> <span class="keyword">users</span> <span class="keyword">offline</span>;          <span class="comment">-- 设置为脱机状态</span></span><br><span class="line">host move ...USERS01.DBF D:\USERS01.DBF  <span class="comment">-- 移动数据文件</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">tablespace</span> <span class="keyword">users</span> <span class="keyword">rename</span> <span class="keyword">datafile</span> <span class="string">&#x27;...USERS01.DBF&#x27;</span> <span class="keyword">to</span> <span class="string">&#x27;D:\ USERS01.DBF&#x27;</span>;  <span class="comment">-- 更改文件路径</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">tablespace</span> <span class="keyword">users</span> <span class="keyword">online</span>;          <span class="comment">-- 设置为联机状态</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="系统表空间数据文件的移动"><a href="#系统表空间数据文件的移动" class="headerlink" title="系统表空间数据文件的移动"></a>系统表空间数据文件的移动</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">shutdown immediate;     <span class="comment">-- 关闭数据库</span></span><br><span class="line">host move ...SYSTEM01.DBF D:\SYSTEM01.DBF    <span class="comment">-- 移动数据文件</span></span><br><span class="line">startup mount;          <span class="comment">-- 启动mount模式</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">rename</span> <span class="keyword">file</span> <span class="string">&#x27;...SYSTEM01.DBF&#x27;</span> <span class="keyword">to</span> <span class="string">&#x27;D:\SYSTEM01.DBF&#x27;</span>;  <span class="comment">-- 更改文件路径</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">open</span>;    <span class="comment">-- 打开数据库</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">drop</span> <span class="keyword">tablespace</span> <span class="keyword">users</span> <span class="keyword">including</span> <span class="keyword">contents</span> <span class="keyword">and</span> <span class="keyword">datafiles</span> <span class="keyword">cascade</span> <span class="keyword">constraints</span>;</span><br><span class="line">    <span class="comment">-- 删除表空间数据文件及关联的完整性约束</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：默认表空间不能被删除，只能更改默认表空间后才能删除。</p>
+</blockquote>
+<hr>
+<h2 id="创建临时表空间"><a href="#创建临时表空间" class="headerlink" title="创建临时表空间"></a>创建临时表空间</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">temporary</span> <span class="keyword">tablespace</span> otemp</span><br><span class="line">tempfile <span class="string">&#x27;D:\OTEMP.DBF&#x27;</span> <span class="keyword">size</span> <span class="number">10</span>M;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：临时表空间不能用自动段空间管理方式创建</p>
+</blockquote>
+<p>将HRTEMP1表空间设置为数据库的默认临时表空间<br>[alter database default temporary tablespace HRTEMP1; ]</p>
+<p>表空间的类型：<br>永久表空间（PERMANENT TABLESPACE）、<br>临时表空间（TEMPTABLESPACE）、<br>撤销表空间（UNDO TABLESPACE）、</p>
+<p>创建撤销表空间<br>为数据库创建一个撤销表空间HRUNDO1<br>Create UNDO tablespace HRUNDO1 datafile  <br>‘D:\app\danser\oradata\TablespaceTest01\HRUNDO1_1.dbf’ size 20M;</p>
+<p> alter system set undo_tablespace=’undotbs1’ scope=spfile;</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>感谢您的阅读，希望本文对您有所帮助</div>
+  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="BigBaiDog 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="BigBaiDog 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/oracle/" rel="tag"><i class="fa fa-tag"></i> oracle</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/04/30/oracle5/" rel="prev" title="Oracle逻辑结构">
+                  <i class="fa fa-chevron-left"></i> Oracle逻辑结构
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/05/06/oracle7/" rel="next" title="Oracle备份与恢复">
+                  Oracle备份与恢复 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">BigBaiDog</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div><div>
+	<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+</div>
+<script>
+	var now = new Date();
+	function createtime() {
+		var grt = new Date("02/11/2020 20:02:02");
+		now.setTime(now.getTime() + 250);
+		days = (now - grt) / 1000 / 60 / 60 / 24;
+		dnum = Math.floor(days);
+		hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
+		hnum = Math.floor(hours);
+		if (String(hnum).length == 1) {
+			hnum = "0" + hnum;
+		}
+		minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+		mnum = Math.floor(minutes);
+		if (String(mnum).length == 1) {
+			mnum = "0" + mnum;
+		}
+		seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+		snum = Math.round(seconds);
+		if (String(snum).length == 1) {
+			snum = "0" + snum;
+		}
+		document.getElementById("timeDate").innerHTML = "小破站已运行 " + dnum + " 天 ";
+		document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+	}
+	setInterval("createtime()", 250);
+</script>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/@next-theme/pjax@0.4.0/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1.15.0/dist/lozad.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '.page-configurations',
+    '.main-inner',
+    '.post-toc-wrap',
+    '.languages',
+    '.pjax'
+  ],
+  analytics: false,
+  cacheBust: false,
+  scrollRestoration: false,
+  scrollTo: !CONFIG.bookmark.enable
+});
+
+document.addEventListener('pjax:success', () => {
+  pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  const hasTOC = document.querySelector('.post-toc');
+  document.querySelector('.sidebar-inner').classList.toggle('sidebar-nav-active', hasTOC);
+  document.querySelector(hasTOC ? '.sidebar-nav-toc' : '.sidebar-nav-overview').click();
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+  
+  <script data-pjax>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+    <div class="pjax">
+  
+
+  
+<div id="tp-weather-widget"></div>
+<script>
+	(function(a,h,g,f,e,d,c,b){b=function(){d=h.createElement(g);c=h.getElementsByTagName(g)[0];d.src=e;d.charset="utf-8";d.async=1;c.parentNode.insertBefore(d,c)};a["SeniverseWeatherWidgetObject"]=f;a[f]||(a[f]=function(){(a[f].q=a[f].q||[]).push(arguments)});a[f].l=+new Date();if(a.attachEvent){a.attachEvent("onload",b)}else{a.addEventListener("load",b,false)}}(window,document,"script","SeniverseWeatherWidget","//cdn.sencdn.com/widget2/static/js/bundle.js?t="+parseInt((new Date().getTime() / 100000000).toString(),10)));
+	window.SeniverseWeatherWidget('show', {
+		flavor: "bubble",
+		location: "WX4FBXXFKE4F",
+		geolocation: true,
+		language: "auto",
+		unit: "c",
+		theme: "auto",
+		token: "0065e199-a09a-4942-9e9f-79d5a049175d",
+		hover: "disabled",
+		container: "tp-weather-widget"
+	})
+</script>
+
+<script type="text/javascript">
+	class Circle {
+		constructor({
+			origin,speed,color,angle,context
+		}) {
+			this.origin = origin
+			this.position = { ...this.origin}
+			this.color = color
+			this.speed = speed
+			this.angle = angle
+			this.context = context
+			this.renderCount = 0
+		}
+		draw() {
+			this.context.fillStyle = this.color
+			this.context.beginPath()
+			this.context.arc(this.position.x, this.position.y, 2, 0, Math.PI * 2)
+			this.context.fill()
+		}
+		move() {
+			this.position.x = (Math.sin(this.angle) * this.speed) + this.position.x
+			this.position.y = (Math.cos(this.angle) * this.speed) + this.position.y + (this.renderCount * 0.3)
+			this.renderCount++
+		}
+	}
+	class Boom {
+		constructor({
+			origin,
+			context,
+			circleCount = 16,
+			area
+		}) {
+			this.origin = origin
+			this.context = context
+			this.circleCount = circleCount
+			this.area = area
+			this.stop = false
+			this.circles = []
+		}
+		randomArray(range) {
+			const length = range.length
+			const randomIndex = Math.floor(length * Math.random())
+			return range[randomIndex]
+		}
+		randomColor() {
+			const range = ['8', '9', 'A', 'B', 'C', 'D', 'E', 'F']
+			return '#' + this.randomArray(range) + this.randomArray(range) + this.randomArray(range) + this.randomArray(range) +
+				this.randomArray(range) + this.randomArray(range)
+		}
+		randomRange(start, end) {
+			return (end - start) * Math.random() + start
+		}
+		init() {
+			for (let i = 0; i < this.circleCount; i++) {
+				const circle = new Circle({
+					context: this.context,
+					origin: this.origin,
+					color: this.randomColor(),
+					angle: this.randomRange(Math.PI - 1, Math.PI + 1),
+					speed: this.randomRange(1, 6)
+				})
+				this.circles.push(circle)
+			}
+		}
+		move() {
+			this.circles.forEach((circle, index) => {
+				if (circle.position.x > this.area.width || circle.position.y > this.area.height) {
+					return this.circles.splice(index, 1)
+				}
+				circle.move()
+			})
+			if (this.circles.length == 0) {
+				this.stop = true
+			}
+		}
+		draw() {
+			this.circles.forEach(circle => circle.draw())
+		}
+	}
+	class CursorSpecialEffects {
+		constructor() {
+			this.computerCanvas = document.createElement('canvas')
+			this.renderCanvas = document.createElement('canvas')
+			this.computerContext = this.computerCanvas.getContext('2d')
+			this.renderContext = this.renderCanvas.getContext('2d')
+			this.globalWidth = window.innerWidth
+			this.globalHeight = window.innerHeight
+			this.booms = []
+			this.running = false
+		}
+		handleMouseDown(e) {
+			const boom = new Boom({
+				origin: {
+					x: e.clientX,
+					y: e.clientY
+				},
+				context: this.computerContext,
+				area: {
+					width: this.globalWidth,
+					height: this.globalHeight
+				}
+			})
+			boom.init()
+			this.booms.push(boom)
+			this.running || this.run()
+		}
+		handlePageHide() {
+			this.booms = []
+			this.running = false
+		}
+		init() {
+			const style = this.renderCanvas.style
+			style.position = 'fixed'
+			style.top = style.left = 0
+			style.zIndex = '999'
+			style.pointerEvents = 'none'
+			style.width = this.renderCanvas.width = this.computerCanvas.width = this.globalWidth
+			style.height = this.renderCanvas.height = this.computerCanvas.height = this.globalHeight
+			document.body.append(this.renderCanvas)
+			window.addEventListener('mousedown', this.handleMouseDown.bind(this))
+			window.addEventListener('pagehide', this.handlePageHide.bind(this))
+		}
+		run() {
+			this.running = true
+			if (this.booms.length == 0) {
+				return this.running = false
+			}
+			requestAnimationFrame(this.run.bind(this))
+			this.computerContext.clearRect(0, 0, this.globalWidth, this.globalHeight)
+			this.renderContext.clearRect(0, 0, this.globalWidth, this.globalHeight)
+			this.booms.forEach((boom, index) => {
+				if (boom.stop) {
+					return this.booms.splice(index, 1)
+				}
+				boom.move()
+				boom.draw()
+			})
+			this.renderContext.drawImage(this.computerCanvas, 0, 0, this.globalWidth, this.globalHeight)
+		}
+	}
+	const cursorSpecialEffects = new CursorSpecialEffects()
+	cursorSpecialEffects.init()
+</script>
+    </div>
+</body>
+</html>
