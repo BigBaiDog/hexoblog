@@ -1882,64 +1882,6 @@ pre code {
     transform: scale(1.1);
   }
 }
-@media (max-width: 567px) {
-  .main-inner {
-    padding: initial !important;
-  }
-  .posts-expand .post-header {
-    margin-bottom: 10px !important;
-  }
-  .post-block {
-    margin-top: initial !important;
-    padding: 8px 18px 8px !important;
-  }
-  .post-body h1,
-  .post-body h2,
-  .post-body h3,
-  .post-body h4,
-  .post-body h5,
-  .post-body h6 {
-    margin: 10px 0 8px;
-  }
-  .post-body .note h1,
-  .post-body .tabs .tab-content .tab-pane h1,
-  .post-body .note h2,
-  .post-body .tabs .tab-content .tab-pane h2,
-  .post-body .note h3,
-  .post-body .tabs .tab-content .tab-pane h3,
-  .post-body .note h4,
-  .post-body .tabs .tab-content .tab-pane h4,
-  .post-body .note h5,
-  .post-body .tabs .tab-content .tab-pane h5,
-  .post-body .note h6,
-  .post-body .tabs .tab-content .tab-pane h6 {
-    margin: 0 5px;
-  }
-  .post-body > p {
-    margin: 0 0 10px 0;
-  }
-  .post-body .note > p,
-  .post-body .tabs .tab-content .tab-pane > p {
-    padding: 0 5px;
-  }
-  .post-body img,
-  .post-body video {
-    margin-bottom: 10px !important;
-  }
-  .post-body .note {
-    margin-bottom: 10px !important;
-    padding: 10px !important;
-  }
-  .post-body .tabs .tab-content .tab-pane {
-    padding: 10px 10px 0 10px !important;
-  }
-  .post-eof {
-    margin: 40px auto 20px !important;
-  }
-  .pagination {
-    margin-top: 40px;
-  }
-}
 .back-to-top {
   font-size: 12px;
 }
@@ -3195,24 +3137,20 @@ mark.search-keyword {
 .site-subtitle {
   line-height: 1;
   width: 4em;
-  margin: 10px auto;
+  margin: 0.75em auto;
   white-space: nowrap;
   overflow: hidden;
   animation: typing 8s steps(4, end) infinite, blink-caret 0.75s step-end infinite;
 }
-@media (max-width: 991px) {
-  .site-meta {
-    padding: 10px 0;
-  }
-}
 #jinrishici-sentence {
-  font-size: 12px;
-  display: block;
-  padding: 5px;
-  margin-top: 5;
+  font-size: 0.75em;
 }
 .back-to-top.back-to-top-on {
-  margin-top: 0;
+  bottom: 75px;
+}
+.back-to-top {
+  border-radius: 4px;
+  width: 58px;
 }
 .vedit .vrow,
 .markdown,
@@ -3232,18 +3170,16 @@ mark.search-keyword {
 #tp-weather-widget .sw-container {
   position: fixed;
   top: unset;
-  bottom: 20px;
+  bottom: 15px;
   left: unset;
-  right: 20px;
+  right: 18px;
 }
 @media (max-width: 991px) {
   #tp-weather-widget .sw-container {
-    position: fixed;
-    top: unset;
-    bottom: 20px;
-    left: unset;
-    right: -3px;
-    opacity: 0.9;
+    right: -6px;
+  }
+  .site-meta {
+    padding: 0.75em;
   }
 }
 @-moz-keyframes typing {

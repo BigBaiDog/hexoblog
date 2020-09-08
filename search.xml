@@ -64,6 +64,23 @@
       </tags>
   </entry>
   <entry>
+    <title>原码、反码、补码和移码</title>
+    <url>/2020/04/16/byte/</url>
+    <content><![CDATA[<blockquote class="blockquote-center">
+<p>一个数在计算机中的二进制表示形式,叫做这个数的机器数。机器数是最高位存放符号, 正数为0, 负数为1。带符号位的机器数对应的数值称为机器数的真值。</p>
+
+</blockquote>
+<a id="more"></a>
+<h2 id="原码"><a href="#原码" class="headerlink" title="原码"></a>原码</h2><p>正数是其二进制本身<br>负数 符号位为1，数值部分为其绝对值的二进制</p>
+<h2 id="反码"><a href="#反码" class="headerlink" title="反码"></a>反码</h2><p>正数 原码相同<br>负数 符号位为1，数值部分是原码取反</p>
+<h2 id="补码"><a href="#补码" class="headerlink" title="补码"></a>补码</h2><p>正数 原码相同<br>负数 符号位为1，数值部分是原码取反，末位加1</p>
+<h2 id="移码"><a href="#移码" class="headerlink" title="移码"></a>移码</h2><p>符号位取反的补码</p>
+]]></content>
+      <tags>
+        <tag>机器数</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MIUI养老指南</title>
     <url>/2020/04/05/android/</url>
     <content><![CDATA[<blockquote class="blockquote-center">
@@ -92,23 +109,6 @@
 ]]></content>
       <tags>
         <tag>android</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>原码、反码、补码和移码</title>
-    <url>/2020/04/16/byte/</url>
-    <content><![CDATA[<blockquote class="blockquote-center">
-<p>一个数在计算机中的二进制表示形式,叫做这个数的机器数。机器数是最高位存放符号, 正数为0, 负数为1。带符号位的机器数对应的数值称为机器数的真值。</p>
-
-</blockquote>
-<a id="more"></a>
-<h2 id="原码"><a href="#原码" class="headerlink" title="原码"></a>原码</h2><p>正数是其二进制本身<br>负数 符号位为1，数值部分为其绝对值的二进制</p>
-<h2 id="反码"><a href="#反码" class="headerlink" title="反码"></a>反码</h2><p>正数 原码相同<br>负数 符号位为1，数值部分是原码取反</p>
-<h2 id="补码"><a href="#补码" class="headerlink" title="补码"></a>补码</h2><p>正数 原码相同<br>负数 符号位为1，数值部分是原码取反，末位加1</p>
-<h2 id="移码"><a href="#移码" class="headerlink" title="移码"></a>移码</h2><p>符号位取反的补码</p>
-]]></content>
-      <tags>
-        <tag>机器数</tag>
       </tags>
   </entry>
   <entry>
