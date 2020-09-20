@@ -752,11 +752,9 @@
       </tags>
   </entry>
   <entry>
-    <title></title>
+    <title>git基本使用</title>
     <url>/2020/09/21/git/</url>
-    <content><![CDATA[<hr>
-<p>title: git基本使用<br>date: 2020-09-21 00:58:11<br>tags: git—</p>
-<blockquote class="blockquote-center">
+    <content><![CDATA[<blockquote class="blockquote-center">
 <p>git命令笔记</p>
 
 </blockquote>
@@ -789,5 +787,8 @@
 <h2 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git branch &lt;branch&gt;      <span class="comment">#创建分支</span></span><br><span class="line">git branch               <span class="comment">#显示所有分支</span></span><br><span class="line">git checkout &lt;branch&gt;    <span class="comment">#切换指定分支</span></span><br><span class="line">git checkout -d &lt;branch&gt; <span class="comment">#删除指定分支</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="远程操作"><a href="#远程操作" class="headerlink" title="远程操作"></a>远程操作</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote add &lt;remote&gt; &lt;url&gt; <span class="comment">#添加远程仓库</span></span><br><span class="line">git remote add origin &lt;url&gt;</span><br><span class="line">git remote -v                 <span class="comment">#显示所有远程仓库</span></span><br><span class="line">git remote show &lt;remote&gt;      <span class="comment">#查看远程仓库信息</span></span><br><span class="line">git remote rename &lt;old&gt; &lt;new&gt; <span class="comment">#修改仓库名</span></span><br><span class="line">git remote rm &lt;remoto&gt;        <span class="comment">#删除远程仓库</span></span><br><span class="line">git remote rm origin</span><br><span class="line"></span><br><span class="line">git pull &lt;remote&gt; &lt;master&gt;:&lt;master&gt; <span class="comment">#下载远程代码并合并</span></span><br><span class="line">git pull origin master</span><br><span class="line"></span><br><span class="line">git push &lt;remote&gt; &lt;master&gt;:&lt;master&gt; <span class="comment">#上传远程代码并合并</span></span><br><span class="line">git push origin master</span><br><span class="line">git push --force &lt;remote&gt; &lt;master&gt;  <span class="comment">#本地与远程有差异，使用强制推送</span></span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>git</tag>
+      </tags>
   </entry>
 </search>
