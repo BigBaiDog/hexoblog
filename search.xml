@@ -751,4 +751,43 @@
         <tag>软件安装</tag>
       </tags>
   </entry>
+  <entry>
+    <title></title>
+    <url>/2020/09/21/git/</url>
+    <content><![CDATA[<hr>
+<p>title: git基本使用<br>date: 2020-09-21 00:58:11<br>tags: git—</p>
+<blockquote class="blockquote-center">
+<p>git命令笔记</p>
+
+</blockquote>
+<a id="more"></a>
+<h2 id="git"><a href="#git" class="headerlink" title="git"></a>git</h2><p>git官网：<span class="exturl" data-url="aHR0cHM6Ly9naXQtc2NtLmNvbS8=">https://git-scm.com/<i class="fa fa-external-link-alt"></i></span></p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git --version <span class="comment">#查看git版本</span></span><br><span class="line"></span><br><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;youremail@example.com&quot;</span> <span class="comment">#创建SSH私钥</span></span><br><span class="line"><span class="built_in">cd</span> ~/.ssh                                    <span class="comment">#打开密钥文件夹</span></span><br><span class="line">cat id_rsa.pub                               <span class="comment">#查看密钥</span></span><br><span class="line"></span><br><span class="line">git config --global user.name <span class="string">&quot;name&quot;</span>                   <span class="comment">#配置用户名</span></span><br><span class="line">git config --global user.email &lt;youremail@example.com&gt; <span class="comment">#配置电子邮箱地址</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git init [directory] <span class="comment">#初始化一个仓库</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="克隆仓库"><a href="#克隆仓库" class="headerlink" title="克隆仓库"></a>克隆仓库</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> &lt;path&gt; &lt;directory&gt; <span class="comment">#克隆本地仓库到指定目录</span></span><br><span class="line">git <span class="built_in">clone</span> &lt;url&gt; [directory]  <span class="comment">#克隆远端仓库</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="添加暂存区"><a href="#添加暂存区" class="headerlink" title="添加暂存区"></a>添加暂存区</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git add &lt;file&gt; ...      <span class="comment">#添加文件到暂存区</span></span><br><span class="line">git add &lt;directory&gt; ... <span class="comment">#添加目录到暂存区</span></span><br><span class="line">git add .               <span class="comment">#添加被修改文件、新建文件到暂存区</span></span><br><span class="line">git add -u              <span class="comment">#添加被修改文件、被删除文件到暂存区</span></span><br><span class="line">git add -A              <span class="comment">#添加新建文件、被修改文件、被删除文件到暂存区</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git rm &lt;file&gt; <span class="comment">#从工作区和暂存区删除文件</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="移动或重命名"><a href="#移动或重命名" class="headerlink" title="移动或重命名"></a>移动或重命名</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git mv &lt;old&gt; &lt;new&gt; <span class="comment">#移动或重命名一个文件、目录</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="查看暂存区状态"><a href="#查看暂存区状态" class="headerlink" title="查看暂存区状态"></a>查看暂存区状态</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git status <span class="comment">#绿色为暂存区未提交到仓库，红色为工作区未提交到暂存区</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="查看差异"><a href="#查看差异" class="headerlink" title="查看差异"></a>查看差异</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git diff [file]                      <span class="comment">#显示工作区与暂存区的差异</span></span><br><span class="line">git diff --cached [file]             <span class="comment">#显示暂存区和仓库的差异</span></span><br><span class="line">git diff --staged [file]             <span class="comment">#显示暂存区和仓库的差异</span></span><br><span class="line">git diff HEAD                        <span class="comment">#显示工作区和仓库的差异</span></span><br><span class="line">git diff &lt;commit_id_1&gt; &lt;commit_id_2&gt; <span class="comment">#显示两次提交的差异</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="提交仓库"><a href="#提交仓库" class="headerlink" title="提交仓库"></a>提交仓库</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git commit [file] ... -m <span class="string">&quot;message&quot;</span>  <span class="comment">#提交暂存区文件到仓库</span></span><br><span class="line">git commit [file] ... -am <span class="string">&quot;message&quot;</span> <span class="comment">#提交工作区文件到仓库</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="回退版本"><a href="#回退版本" class="headerlink" title="回退版本"></a>回退版本</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git reset HEAD^        <span class="comment">#回退上一个版本</span></span><br><span class="line">git reset HEAD^ [file] <span class="comment">#回退指定文件的上一个版本</span></span><br><span class="line">git reset &lt;commit&gt;     <span class="comment">#回退到指定版本</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="查看提交历史"><a href="#查看提交历史" class="headerlink" title="查看提交历史"></a>查看提交历史</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">log</span>          <span class="comment">#查看历史提交记录</span></span><br><span class="line">git <span class="built_in">log</span> -p&lt;file&gt; <span class="comment">#查看指定文件的提交记录</span></span><br><span class="line">git blame &lt;file&gt; <span class="comment">#以列表方式查看指定文件的提交记录</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git branch &lt;branch&gt;      <span class="comment">#创建分支</span></span><br><span class="line">git branch               <span class="comment">#显示所有分支</span></span><br><span class="line">git checkout &lt;branch&gt;    <span class="comment">#切换指定分支</span></span><br><span class="line">git checkout -d &lt;branch&gt; <span class="comment">#删除指定分支</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="远程操作"><a href="#远程操作" class="headerlink" title="远程操作"></a>远程操作</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote add &lt;remote&gt; &lt;url&gt; <span class="comment">#添加远程仓库</span></span><br><span class="line">git remote add origin &lt;url&gt;</span><br><span class="line">git remote -v                 <span class="comment">#显示所有远程仓库</span></span><br><span class="line">git remote show &lt;remote&gt;      <span class="comment">#查看远程仓库信息</span></span><br><span class="line">git remote rename &lt;old&gt; &lt;new&gt; <span class="comment">#修改仓库名</span></span><br><span class="line">git remote rm &lt;remoto&gt;        <span class="comment">#删除远程仓库</span></span><br><span class="line">git remote rm origin</span><br><span class="line"></span><br><span class="line">git pull &lt;remote&gt; &lt;master&gt;:&lt;master&gt; <span class="comment">#下载远程代码并合并</span></span><br><span class="line">git pull origin master</span><br><span class="line"></span><br><span class="line">git push &lt;remote&gt; &lt;master&gt;:&lt;master&gt; <span class="comment">#上传远程代码并合并</span></span><br><span class="line">git push origin master</span><br><span class="line">git push --force &lt;remote&gt; &lt;master&gt;  <span class="comment">#本地与远程有差异，使用强制推送</span></span><br></pre></td></tr></table></figure>]]></content>
+  </entry>
 </search>
