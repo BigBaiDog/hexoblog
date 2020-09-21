@@ -64,23 +64,6 @@
       </tags>
   </entry>
   <entry>
-    <title>原码、反码、补码和移码</title>
-    <url>/2020/04/16/byte/</url>
-    <content><![CDATA[<blockquote class="blockquote-center">
-<p>一个数在计算机中的二进制表示形式,叫做这个数的机器数。机器数是最高位存放符号, 正数为0, 负数为1。带符号位的机器数对应的数值称为机器数的真值。</p>
-
-</blockquote>
-<a id="more"></a>
-<h2 id="原码"><a href="#原码" class="headerlink" title="原码"></a>原码</h2><p>正数是其二进制本身<br>负数 符号位为1，数值部分为其绝对值的二进制</p>
-<h2 id="反码"><a href="#反码" class="headerlink" title="反码"></a>反码</h2><p>正数 原码相同<br>负数 符号位为1，数值部分是原码取反</p>
-<h2 id="补码"><a href="#补码" class="headerlink" title="补码"></a>补码</h2><p>正数 原码相同<br>负数 符号位为1，数值部分是原码取反，末位加1</p>
-<h2 id="移码"><a href="#移码" class="headerlink" title="移码"></a>移码</h2><p>符号位取反的补码</p>
-]]></content>
-      <tags>
-        <tag>机器数</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>MIUI养老指南</title>
     <url>/2020/04/05/android/</url>
     <content><![CDATA[<blockquote class="blockquote-center">
@@ -109,6 +92,69 @@
 ]]></content>
       <tags>
         <tag>android</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>原码、反码、补码和移码</title>
+    <url>/2020/04/16/byte/</url>
+    <content><![CDATA[<blockquote class="blockquote-center">
+<p>一个数在计算机中的二进制表示形式,叫做这个数的机器数。机器数是最高位存放符号, 正数为0, 负数为1。带符号位的机器数对应的数值称为机器数的真值。</p>
+
+</blockquote>
+<a id="more"></a>
+<h2 id="原码"><a href="#原码" class="headerlink" title="原码"></a>原码</h2><p>正数是其二进制本身<br>负数 符号位为1，数值部分为其绝对值的二进制</p>
+<h2 id="反码"><a href="#反码" class="headerlink" title="反码"></a>反码</h2><p>正数 原码相同<br>负数 符号位为1，数值部分是原码取反</p>
+<h2 id="补码"><a href="#补码" class="headerlink" title="补码"></a>补码</h2><p>正数 原码相同<br>负数 符号位为1，数值部分是原码取反，末位加1</p>
+<h2 id="移码"><a href="#移码" class="headerlink" title="移码"></a>移码</h2><p>符号位取反的补码</p>
+]]></content>
+      <tags>
+        <tag>机器数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>git基本使用</title>
+    <url>/2020/09/21/git/</url>
+    <content><![CDATA[<blockquote class="blockquote-center">
+<p>git命令笔记</p>
+
+</blockquote>
+<a id="more"></a>
+<h2 id="git"><a href="#git" class="headerlink" title="git"></a>git</h2><p>git官网：<span class="exturl" data-url="aHR0cHM6Ly9naXQtc2NtLmNvbS8=">https://git-scm.com/<i class="fa fa-external-link-alt"></i></span></p>
+<h2 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h2><ul>
+<li>克隆 Git 资源作为工作目录。</li>
+<li>在克隆的资源上添加或修改文件。</li>
+<li>如果其他人修改了，你可以更新资源。</li>
+<li>在提交前查看修改。</li>
+<li>提交修改。</li>
+<li>在修改完成后，如果发现错误，可以撤回提交并再次修改并提交。</li>
+</ul>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git --version <span class="comment">#查看git版本</span></span><br><span class="line"></span><br><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;youremail@example.com&quot;</span> <span class="comment">#创建SSH私钥</span></span><br><span class="line"><span class="built_in">cd</span> ~/.ssh                                    <span class="comment">#打开密钥文件夹</span></span><br><span class="line">cat id_rsa.pub                               <span class="comment">#查看密钥</span></span><br><span class="line"></span><br><span class="line">git config --global user.name <span class="string">&quot;name&quot;</span>                   <span class="comment">#配置用户名</span></span><br><span class="line">git config --global user.email &lt;youremail@example.com&gt; <span class="comment">#配置电子邮箱地址</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git init [directory] <span class="comment">#初始化一个仓库</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="克隆仓库"><a href="#克隆仓库" class="headerlink" title="克隆仓库"></a>克隆仓库</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> &lt;path&gt; &lt;directory&gt; <span class="comment">#克隆本地仓库到指定目录</span></span><br><span class="line">git <span class="built_in">clone</span> &lt;url&gt; [directory]  <span class="comment">#克隆远端仓库</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="添加暂存区"><a href="#添加暂存区" class="headerlink" title="添加暂存区"></a>添加暂存区</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git add &lt;file&gt; ...      <span class="comment">#添加文件到暂存区</span></span><br><span class="line">git add &lt;directory&gt; ... <span class="comment">#添加目录到暂存区</span></span><br><span class="line">git add .               <span class="comment">#添加被修改文件、新建文件到暂存区</span></span><br><span class="line">git add -u              <span class="comment">#添加被修改文件、被删除文件到暂存区</span></span><br><span class="line">git add -A              <span class="comment">#添加新建文件、被修改文件、被删除文件到暂存区</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git rm &lt;file&gt; <span class="comment">#从工作区和暂存区删除文件</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="移动或重命名"><a href="#移动或重命名" class="headerlink" title="移动或重命名"></a>移动或重命名</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git mv &lt;old&gt; &lt;new&gt; <span class="comment">#移动或重命名一个文件、目录</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="查看暂存区状态"><a href="#查看暂存区状态" class="headerlink" title="查看暂存区状态"></a>查看暂存区状态</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git status <span class="comment">#绿色为暂存区未提交到仓库，红色为工作区未提交到暂存区</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="查看差异"><a href="#查看差异" class="headerlink" title="查看差异"></a>查看差异</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git diff [file]                      <span class="comment">#显示工作区与暂存区的差异</span></span><br><span class="line">git diff --cached [file]             <span class="comment">#显示暂存区和仓库的差异</span></span><br><span class="line">git diff --staged [file]             <span class="comment">#显示暂存区和仓库的差异</span></span><br><span class="line">git diff HEAD                        <span class="comment">#显示工作区和仓库的差异</span></span><br><span class="line">git diff &lt;commit_id_1&gt; &lt;commit_id_2&gt; <span class="comment">#显示两次提交的差异</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="提交仓库"><a href="#提交仓库" class="headerlink" title="提交仓库"></a>提交仓库</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git commit [file] ... -m <span class="string">&quot;message&quot;</span>  <span class="comment">#提交暂存区文件到仓库</span></span><br><span class="line">git commit [file] ... -am <span class="string">&quot;message&quot;</span> <span class="comment">#提交工作区文件到仓库</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="回退版本"><a href="#回退版本" class="headerlink" title="回退版本"></a>回退版本</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git reset HEAD^        <span class="comment">#回退上一个版本</span></span><br><span class="line">git reset HEAD^ [file] <span class="comment">#回退指定文件的上一个版本</span></span><br><span class="line">git reset &lt;commit&gt;     <span class="comment">#回退到指定版本</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="查看提交历史"><a href="#查看提交历史" class="headerlink" title="查看提交历史"></a>查看提交历史</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">log</span>          <span class="comment">#查看历史提交记录</span></span><br><span class="line">git <span class="built_in">log</span> -p&lt;file&gt; <span class="comment">#查看指定文件的提交记录</span></span><br><span class="line">git blame &lt;file&gt; <span class="comment">#以列表方式查看指定文件的提交记录</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git branch &lt;branch&gt;      <span class="comment">#创建分支</span></span><br><span class="line">git branch               <span class="comment">#显示所有分支</span></span><br><span class="line">git checkout &lt;branch&gt;    <span class="comment">#切换指定分支</span></span><br><span class="line">git checkout -d &lt;branch&gt; <span class="comment">#删除指定分支</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="远程操作"><a href="#远程操作" class="headerlink" title="远程操作"></a>远程操作</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote add &lt;remote&gt; &lt;url&gt; <span class="comment">#添加远程仓库</span></span><br><span class="line">git remote add origin &lt;url&gt;</span><br><span class="line">git remote -v                 <span class="comment">#显示所有远程仓库</span></span><br><span class="line">git remote show &lt;remote&gt;      <span class="comment">#查看远程仓库信息</span></span><br><span class="line">git remote rename &lt;old&gt; &lt;new&gt; <span class="comment">#修改仓库名</span></span><br><span class="line">git remote rm &lt;remoto&gt;        <span class="comment">#删除远程仓库</span></span><br><span class="line">git remote rm origin</span><br><span class="line"></span><br><span class="line">git pull &lt;remote&gt; &lt;master&gt;:&lt;master&gt; <span class="comment">#下载远程代码并合并</span></span><br><span class="line">git pull origin master</span><br><span class="line"></span><br><span class="line">git push &lt;remote&gt; &lt;master&gt;:&lt;master&gt; <span class="comment">#上传远程代码并合并</span></span><br><span class="line">git push origin master</span><br><span class="line">git push --force &lt;remote&gt; &lt;master&gt;  <span class="comment">#本地与远程有差异，使用强制推送</span></span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>git</tag>
       </tags>
   </entry>
   <entry>
@@ -501,50 +547,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Oracle备份与恢复</title>
-    <url>/2020/05/06/oracle7/</url>
-    <content><![CDATA[<blockquote class="blockquote-center">
-<p>整理学习笔记</p>
-
-</blockquote>
-<a id="more"></a>
-<p>如果数据库处于非归档模式，只能进行冷备份。<br>如果数据库处于归档模式，可以进行冷备份或热备份。</p>
-<h2 id="脱机备份"><a href="#脱机备份" class="headerlink" title="脱机备份"></a>脱机备份</h2><p>脱机备份（冷备份）：非归档模式下，数据库关闭状态中，对所有数据库文件的物理拷贝。<br>只能对整个数据库进行备份，不能针对某个表空间或数据文件进行备份，每次备份都需要备份数据库中的所有数据。<br>在对数据库进行恢复时，只能把数据恢复到最后一次备份点的时刻。</p>
-<h3 id="设置非归档模式"><a href="#设置非归档模式" class="headerlink" title="设置非归档模式"></a>设置非归档模式</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">archive log list;             <span class="comment">--查看日志模式</span></span><br><span class="line">shutdown immediate;           <span class="comment">-- 立即关闭数据库</span></span><br><span class="line">startup mount;                <span class="comment">-- 启动mount模式</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">noarchivelog</span>;  <span class="comment">-- 设置非归档模式</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">open</span>;    <span class="comment">-- 打开数据库</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="查询数据库文件路径"><a href="#查询数据库文件路径" class="headerlink" title="查询数据库文件路径"></a>查询数据库文件路径</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">name</span> <span class="keyword">from</span> V$<span class="keyword">controlfile</span>;  <span class="comment">-- 控制文件</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">Group</span><span class="comment">#,member from V$logfile;  -- 日志文件</span></span><br><span class="line"><span class="keyword">select</span> tablespace_name,file_name <span class="keyword">from</span> dba_data_files; <span class="comment">-- 数据文件</span></span><br><span class="line"><span class="keyword">show</span> parameter <span class="keyword">spfile</span>;    <span class="comment">-- 初始化参数文</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="脱机备份数据库文件"><a href="#脱机备份数据库文件" class="headerlink" title="脱机备份数据库文件"></a>脱机备份数据库文件</h3><figure class="highlight sql"><figcaption><span>backup.sql</span></figcaption><table><tr><td class="code"><pre><span class="line">conn sys/123456 as sysdba  <span class="comment">-- 连接数据库 用户名/密码</span></span><br><span class="line">shutdown immediate   <span class="comment">-- 立即关闭数据库</span></span><br><span class="line">host copy ...\oracle\oradata\orcl\*.* D:\backup  --复制数据库文件</span><br><span class="line">host copy ...\oracle\flash_recovery_area\orcl\CONTROL02.CTL D:\<span class="keyword">backup</span></span><br><span class="line">host copy ...\<span class="keyword">oracle</span>\product\<span class="number">11.2</span><span class="number">.0</span>\dbhome_1\<span class="keyword">database</span>\SPFILEORCL.ORA D:\<span class="keyword">backup</span></span><br><span class="line"><span class="keyword">startup</span>  <span class="comment">-- 打开数据库</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="把备份过程做成一键批处理"><a href="#把备份过程做成一键批处理" class="headerlink" title="把备份过程做成一键批处理"></a>把备份过程做成一键批处理</h3><figure class="highlight bash"><figcaption><span>backup.bat</span></figcaption><table><tr><td class="code"><pre><span class="line">...\oracle\product\11.2.0\dbhome_1\BIN\sqlplus /nolog @D:\backup\backup.sql</span><br><span class="line"><span class="built_in">exit</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="脱机还原"><a href="#脱机还原" class="headerlink" title="脱机还原"></a>脱机还原</h2><h3 id="脱机恢复到原路径"><a href="#脱机恢复到原路径" class="headerlink" title="脱机恢复到原路径"></a>脱机恢复到原路径</h3><figure class="highlight sql"><figcaption><span>recover.sql</span></figcaption><table><tr><td class="code"><pre><span class="line">conn sys/123456 as sysdba  <span class="comment">-- 连接数据库 用户名/密码</span></span><br><span class="line">shutdown immediate  <span class="comment">-- 立即关闭数据库</span></span><br><span class="line">host copy D:\<span class="keyword">backup</span>\*.* ...\<span class="keyword">oracle</span>\<span class="keyword">oradata</span>\orcl  <span class="comment">-- 复制备份文件</span></span><br><span class="line">host copy D:\<span class="keyword">backup</span>\CONTROL02.CTL ...\<span class="keyword">oracle</span>\flash_recovery_area\orcl</span><br><span class="line">host copy D:\<span class="keyword">backup</span>\SPFILEORCL.ORA ...\<span class="keyword">oracle</span>\product\<span class="number">11.2</span><span class="number">.0</span>\dbhome_1\<span class="keyword">database</span></span><br><span class="line"><span class="keyword">startup</span>  <span class="comment">-- 打开数据库</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="把恢复过程做成一键批处理"><a href="#把恢复过程做成一键批处理" class="headerlink" title="把恢复过程做成一键批处理"></a>把恢复过程做成一键批处理</h3><figure class="highlight bash"><figcaption><span>recover.bat</span></figcaption><table><tr><td class="code"><pre><span class="line">...\oracle\product\11.2.0\dbhome_1\BIN\sqlplus /nolog @D:\backup\recover.sql</span><br><span class="line"><span class="built_in">exit</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="脱机恢复到新路径"><a href="#脱机恢复到新路径" class="headerlink" title="脱机恢复到新路径"></a>脱机恢复到新路径</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">shutdown immediate  <span class="comment">-- 立即关闭数据库</span></span><br><span class="line">host copy D:\<span class="keyword">backup</span>\*.* ...\<span class="keyword">oracle</span>\<span class="keyword">oradata</span>\orcl  <span class="comment">-- 复制备份文件</span></span><br><span class="line">host copy D:\<span class="keyword">backup</span>\CONTROL02.CTL ...\<span class="keyword">oracle</span>\flash_recovery_area\orcl</span><br><span class="line">host copy D:\<span class="keyword">backup</span>\SPFILEORCL.ORA ...\<span class="keyword">oracle</span>\product\<span class="number">11.2</span><span class="number">.0</span>\dbhome_1\<span class="keyword">database</span></span><br><span class="line">host copy D:\<span class="keyword">backup</span>\users01.dbf D:\<span class="keyword">oracle</span>  <span class="comment">-- 复制备份文件到新路径</span></span><br><span class="line"><span class="keyword">startup</span> <span class="keyword">mount</span>  <span class="comment">-- 启动mount模式</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">rename</span> <span class="keyword">file</span> <span class="string">&#x27;...\USERS01.DBF&#x27;</span> <span class="keyword">to</span> <span class="string">&#x27;D:\oracle\USERS01.DBF&#x27;</span>;  <span class="comment">--更改文件路径</span></span><br><span class="line"><span class="comment">-- 如全部数据库文件换新路径，须全部更改文件路径</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">open</span>  <span class="comment">-- 打开数据库</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="联机备份"><a href="#联机备份" class="headerlink" title="联机备份"></a>联机备份</h2><p>归档模式下 数据库打开状态下进行备份，只需要备份常用的数据文件，而其他文件是通过冗余保护的。可以针对整个数据库，或着某个表空间，或者某个数据文件进行备份<br>Restore还原，修复损坏的或丢失的操作系统文件，就是把备份的数据文件复制到原来位置，替换已经损坏或丢失的数据文件<br>Recover 恢复，是指修复后，把从备份开始到数据文件崩溃这段时间内没有提交的数据从归档日志（重做日志）写回刚刚修复的数据文件中。</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">archive log list;       <span class="comment">--查看数据库日志模式</span></span><br><span class="line">shutdown immediate;     <span class="comment">-- 关闭数据库</span></span><br><span class="line">startup mount;          <span class="comment">-- 启动mount模式</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">archivelog</span>;         <span class="comment">-- 设置归档模式</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">open</span>;    <span class="comment">-- 启动数据库</span></span><br><span class="line"><span class="keyword">select</span> file_id,tablespace_name,file_name <span class="keyword">from</span> dba_data_files;   <span class="comment">-- 查询数据文件信息</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> V$<span class="keyword">backup</span>;  <span class="comment">-- 查询数据文件备份状态</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">tablespace</span> <span class="keyword">users</span> <span class="keyword">begin</span> <span class="keyword">backup</span>;  <span class="comment">-- 将表空间置于联机备份模式</span></span><br><span class="line">host copy ...\USERS01.DBF D:\<span class="keyword">backup</span>\USERS01.DBF   <span class="comment">-- 使用操作系统命令复制表空间的数据文件到其他备份呢磁盘中</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">tablespace</span> <span class="keyword">users</span> <span class="keyword">end</span> <span class="keyword">backup</span>;  <span class="comment">-- 将表空间退出联机备份模式</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">system</span> <span class="keyword">archive</span> <span class="keyword">log</span> <span class="keyword">current</span>;   <span class="comment">-- 将当前的重做日志文件的信息写入到归档日志中</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> V$<span class="keyword">backup</span>;  <span class="comment">-- 再使用数据字典V$backup确认数据文件的备份状态</span></span><br></pre></td></tr></table></figure>
-<h2 id="联机还原"><a href="#联机还原" class="headerlink" title="联机还原"></a>联机还原</h2><h3 id="example1"><a href="#example1" class="headerlink" title="example1"></a>example1</h3><p>所需恢复的数据文件不属于系统表空间或还原表空间，磁盘介质损坏/数据文件崩溃或丢失，但是未造成数据库关闭，恢复过程中，满足：保证数据库关闭时间最小</p>
-<h4 id="表空间"><a href="#表空间" class="headerlink" title="表空间"></a>表空间</h4><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> tablespace_name,file_name,online_status <span class="keyword">from</span> dba_data_files;	  <span class="comment">-- 使用数据字典dba_tablespaces 查看要恢复的表空间是否处在脱机状态</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">tablespace</span> <span class="keyword">users</span> <span class="keyword">offline</span>;如果该表空间处在联机状态，要把置为脱机</span><br><span class="line">host copy 操作系统命令将备份的数据文件复制到原有位置</span><br><span class="line"><span class="keyword">alter</span>   <span class="keyword">rename</span> <span class="keyword">to</span> …. 重命名数据文件</span><br><span class="line"><span class="keyword">Recover</span> <span class="keyword">tablespace</span> 表空间名</span><br></pre></td></tr></table></figure>
-
-<h4 id="数据文件"><a href="#数据文件" class="headerlink" title="数据文件"></a>数据文件</h4><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> file_id,tablespace_name,file_name <span class="keyword">from</span> dba_data_files;	使用数据字典dba_data_files获取要恢复的数据文件及它所在的表空间的关系；</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">file</span><span class="comment">#,name,status from V$datafile;  -- 也可以通过V$datafile确认要修复的数据文件是否处在脱机状态</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">datafile</span> n <span class="keyword">offline</span>;把要修复的这个数据文件设置为脱机状态，</span><br><span class="line">host copy <span class="comment">-- 使用操作系统命令将备份的数据文件复制到原有位置，如果是原有路径的磁盘坏了</span></span><br><span class="line"><span class="keyword">alter</span>   <span class="keyword">rename</span> <span class="keyword">to</span> …. 重命名数据文件</span><br><span class="line"><span class="keyword">recover</span> <span class="keyword">datafile</span> n; 使用recover将所有提交的数据从归档日志写入已修复的数据文件</span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> n <span class="keyword">online</span>;</span><br></pre></td></tr></table></figure>
-
-
-<h4 id="example2"><a href="#example2" class="headerlink" title="example2"></a>example2</h4><p>例2 所需恢复的数据文件不属于系统表空间或还原空间，介质损坏/数据文件丢失，但是已经造成了数据库的关闭，恢复：条件：希望数据库关闭时间必须保持最小。<br>首要目的：要让数据库正常打开，不要影响其他工作</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">startup mount</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">file</span><span class="comment">#,name,status from V$datafile; -- 通过V$datafile去查看要修复的数据文件的信息</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">datafile</span> n <span class="keyword">offline</span>; </span><br><span class="line"><span class="keyword">Alter</span> <span class="keyword">database</span> <span class="keyword">open</span>;</span><br><span class="line">Host copy 把备份的数据文件复制到原有路径</span><br><span class="line">recover datafile ….;</span><br><span class="line">用<span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">datafile</span> n <span class="keyword">online</span>;</span><br></pre></td></tr></table></figure>
-
-<h4 id="example3"><a href="#example3" class="headerlink" title="example3"></a>example3</h4><p>例3想办法去恢复那些没有备份的数据文件<br>所需恢复的数据文件不属于系统表空间或还原表空间，由于介质损坏或用户错误导致数据文件丢失，但是这个数据文件从来没有备份过，但是从数据文件创建以来所有的日志文件都完好。</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">startup mount；</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">file</span><span class="comment">#,name,status from V$datafile;  -- V$datafile确认数据文件是脱机还是联机状态</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">datafile</span> n <span class="keyword">offline</span>;  数据文件脱机</span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">open</span> ;</span><br><span class="line"><span class="keyword">Select</span> * <span class="keyword">from</span> V$recover_file;</span><br><span class="line"><span class="keyword">Alter</span> <span class="keyword">database</span> <span class="keyword">create</span> <span class="keyword">datafile</span> ‘……丢失文件路径..’;</span><br><span class="line">Recover datafile ‘……丢失文件路径…’;</span><br><span class="line"><span class="keyword">Alter</span> <span class="keyword">database</span> <span class="keyword">datafile</span> n <span class="keyword">online</span>;</span><br></pre></td></tr></table></figure>
-
-<h4 id="example4"><a href="#example4" class="headerlink" title="example4"></a>example4</h4><p>所需恢复的数据文件属于系统表空间或还原表空间，或者整个数据库或大多数的数据文件都要恢复，，数据库允许短暂的关闭<br>假设系统表空间所在的磁盘损坏，导致系统数据文件丢失，幸好之前做了文件的热备份，且日志文件保存完整，请你做数据库的全恢复</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> file_id,tablespace_name,file_name <span class="keyword">from</span> dba_data_files;	</span><br><span class="line">shutdown immediate;</span><br><span class="line">startup mount</span><br><span class="line">host copy <span class="comment">-- 使用操作系统命令把备份的复制回来，如果是磁盘损坏，要复制到新的路径，</span></span><br><span class="line">startup mount;</span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">rename</span> <span class="keyword">file</span>   <span class="string">&#x27;/oradata/PMPTGDB/users01.dbf&#x27;</span>   <span class="keyword">to</span>   <span class="string">&#x27;/media/hdd1/oradata/PMPTGDB/users01.dbf &#x27;</span>;  <span class="comment">--之后要alter 命令更改数据文件的路径</span></span><br><span class="line">Recover database;</span><br><span class="line"><span class="keyword">Alter</span> <span class="keyword">database</span> <span class="keyword">open</span>;</span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>oracle</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Oracle RMAN备份与恢复</title>
     <url>/2020/05/06/oracle8/</url>
     <content><![CDATA[<blockquote class="blockquote-center">
@@ -681,6 +683,50 @@
       </tags>
   </entry>
   <entry>
+    <title>Oracle备份与恢复</title>
+    <url>/2020/05/06/oracle7/</url>
+    <content><![CDATA[<blockquote class="blockquote-center">
+<p>整理学习笔记</p>
+
+</blockquote>
+<a id="more"></a>
+<p>如果数据库处于非归档模式，只能进行冷备份。<br>如果数据库处于归档模式，可以进行冷备份或热备份。</p>
+<h2 id="脱机备份"><a href="#脱机备份" class="headerlink" title="脱机备份"></a>脱机备份</h2><p>脱机备份（冷备份）：非归档模式下，数据库关闭状态中，对所有数据库文件的物理拷贝。<br>只能对整个数据库进行备份，不能针对某个表空间或数据文件进行备份，每次备份都需要备份数据库中的所有数据。<br>在对数据库进行恢复时，只能把数据恢复到最后一次备份点的时刻。</p>
+<h3 id="设置非归档模式"><a href="#设置非归档模式" class="headerlink" title="设置非归档模式"></a>设置非归档模式</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">archive log list;             <span class="comment">--查看日志模式</span></span><br><span class="line">shutdown immediate;           <span class="comment">-- 立即关闭数据库</span></span><br><span class="line">startup mount;                <span class="comment">-- 启动mount模式</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">noarchivelog</span>;  <span class="comment">-- 设置非归档模式</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">open</span>;    <span class="comment">-- 打开数据库</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="查询数据库文件路径"><a href="#查询数据库文件路径" class="headerlink" title="查询数据库文件路径"></a>查询数据库文件路径</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">name</span> <span class="keyword">from</span> V$<span class="keyword">controlfile</span>;  <span class="comment">-- 控制文件</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">Group</span><span class="comment">#,member from V$logfile;  -- 日志文件</span></span><br><span class="line"><span class="keyword">select</span> tablespace_name,file_name <span class="keyword">from</span> dba_data_files; <span class="comment">-- 数据文件</span></span><br><span class="line"><span class="keyword">show</span> parameter <span class="keyword">spfile</span>;    <span class="comment">-- 初始化参数文</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="脱机备份数据库文件"><a href="#脱机备份数据库文件" class="headerlink" title="脱机备份数据库文件"></a>脱机备份数据库文件</h3><figure class="highlight sql"><figcaption><span>backup.sql</span></figcaption><table><tr><td class="code"><pre><span class="line">conn sys/123456 as sysdba  <span class="comment">-- 连接数据库 用户名/密码</span></span><br><span class="line">shutdown immediate   <span class="comment">-- 立即关闭数据库</span></span><br><span class="line">host copy ...\oracle\oradata\orcl\*.* D:\backup  --复制数据库文件</span><br><span class="line">host copy ...\oracle\flash_recovery_area\orcl\CONTROL02.CTL D:\<span class="keyword">backup</span></span><br><span class="line">host copy ...\<span class="keyword">oracle</span>\product\<span class="number">11.2</span><span class="number">.0</span>\dbhome_1\<span class="keyword">database</span>\SPFILEORCL.ORA D:\<span class="keyword">backup</span></span><br><span class="line"><span class="keyword">startup</span>  <span class="comment">-- 打开数据库</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="把备份过程做成一键批处理"><a href="#把备份过程做成一键批处理" class="headerlink" title="把备份过程做成一键批处理"></a>把备份过程做成一键批处理</h3><figure class="highlight bash"><figcaption><span>backup.bat</span></figcaption><table><tr><td class="code"><pre><span class="line">...\oracle\product\11.2.0\dbhome_1\BIN\sqlplus /nolog @D:\backup\backup.sql</span><br><span class="line"><span class="built_in">exit</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="脱机还原"><a href="#脱机还原" class="headerlink" title="脱机还原"></a>脱机还原</h2><h3 id="脱机恢复到原路径"><a href="#脱机恢复到原路径" class="headerlink" title="脱机恢复到原路径"></a>脱机恢复到原路径</h3><figure class="highlight sql"><figcaption><span>recover.sql</span></figcaption><table><tr><td class="code"><pre><span class="line">conn sys/123456 as sysdba  <span class="comment">-- 连接数据库 用户名/密码</span></span><br><span class="line">shutdown immediate  <span class="comment">-- 立即关闭数据库</span></span><br><span class="line">host copy D:\<span class="keyword">backup</span>\*.* ...\<span class="keyword">oracle</span>\<span class="keyword">oradata</span>\orcl  <span class="comment">-- 复制备份文件</span></span><br><span class="line">host copy D:\<span class="keyword">backup</span>\CONTROL02.CTL ...\<span class="keyword">oracle</span>\flash_recovery_area\orcl</span><br><span class="line">host copy D:\<span class="keyword">backup</span>\SPFILEORCL.ORA ...\<span class="keyword">oracle</span>\product\<span class="number">11.2</span><span class="number">.0</span>\dbhome_1\<span class="keyword">database</span></span><br><span class="line"><span class="keyword">startup</span>  <span class="comment">-- 打开数据库</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="把恢复过程做成一键批处理"><a href="#把恢复过程做成一键批处理" class="headerlink" title="把恢复过程做成一键批处理"></a>把恢复过程做成一键批处理</h3><figure class="highlight bash"><figcaption><span>recover.bat</span></figcaption><table><tr><td class="code"><pre><span class="line">...\oracle\product\11.2.0\dbhome_1\BIN\sqlplus /nolog @D:\backup\recover.sql</span><br><span class="line"><span class="built_in">exit</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="脱机恢复到新路径"><a href="#脱机恢复到新路径" class="headerlink" title="脱机恢复到新路径"></a>脱机恢复到新路径</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">shutdown immediate  <span class="comment">-- 立即关闭数据库</span></span><br><span class="line">host copy D:\<span class="keyword">backup</span>\*.* ...\<span class="keyword">oracle</span>\<span class="keyword">oradata</span>\orcl  <span class="comment">-- 复制备份文件</span></span><br><span class="line">host copy D:\<span class="keyword">backup</span>\CONTROL02.CTL ...\<span class="keyword">oracle</span>\flash_recovery_area\orcl</span><br><span class="line">host copy D:\<span class="keyword">backup</span>\SPFILEORCL.ORA ...\<span class="keyword">oracle</span>\product\<span class="number">11.2</span><span class="number">.0</span>\dbhome_1\<span class="keyword">database</span></span><br><span class="line">host copy D:\<span class="keyword">backup</span>\users01.dbf D:\<span class="keyword">oracle</span>  <span class="comment">-- 复制备份文件到新路径</span></span><br><span class="line"><span class="keyword">startup</span> <span class="keyword">mount</span>  <span class="comment">-- 启动mount模式</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">rename</span> <span class="keyword">file</span> <span class="string">&#x27;...\USERS01.DBF&#x27;</span> <span class="keyword">to</span> <span class="string">&#x27;D:\oracle\USERS01.DBF&#x27;</span>;  <span class="comment">--更改文件路径</span></span><br><span class="line"><span class="comment">-- 如全部数据库文件换新路径，须全部更改文件路径</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">open</span>  <span class="comment">-- 打开数据库</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="联机备份"><a href="#联机备份" class="headerlink" title="联机备份"></a>联机备份</h2><p>归档模式下 数据库打开状态下进行备份，只需要备份常用的数据文件，而其他文件是通过冗余保护的。可以针对整个数据库，或着某个表空间，或者某个数据文件进行备份<br>Restore还原，修复损坏的或丢失的操作系统文件，就是把备份的数据文件复制到原来位置，替换已经损坏或丢失的数据文件<br>Recover 恢复，是指修复后，把从备份开始到数据文件崩溃这段时间内没有提交的数据从归档日志（重做日志）写回刚刚修复的数据文件中。</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">archive log list;       <span class="comment">--查看数据库日志模式</span></span><br><span class="line">shutdown immediate;     <span class="comment">-- 关闭数据库</span></span><br><span class="line">startup mount;          <span class="comment">-- 启动mount模式</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">archivelog</span>;         <span class="comment">-- 设置归档模式</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">open</span>;    <span class="comment">-- 启动数据库</span></span><br><span class="line"><span class="keyword">select</span> file_id,tablespace_name,file_name <span class="keyword">from</span> dba_data_files;   <span class="comment">-- 查询数据文件信息</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> V$<span class="keyword">backup</span>;  <span class="comment">-- 查询数据文件备份状态</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">tablespace</span> <span class="keyword">users</span> <span class="keyword">begin</span> <span class="keyword">backup</span>;  <span class="comment">-- 将表空间置于联机备份模式</span></span><br><span class="line">host copy ...\USERS01.DBF D:\<span class="keyword">backup</span>\USERS01.DBF   <span class="comment">-- 使用操作系统命令复制表空间的数据文件到其他备份呢磁盘中</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">tablespace</span> <span class="keyword">users</span> <span class="keyword">end</span> <span class="keyword">backup</span>;  <span class="comment">-- 将表空间退出联机备份模式</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">system</span> <span class="keyword">archive</span> <span class="keyword">log</span> <span class="keyword">current</span>;   <span class="comment">-- 将当前的重做日志文件的信息写入到归档日志中</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> V$<span class="keyword">backup</span>;  <span class="comment">-- 再使用数据字典V$backup确认数据文件的备份状态</span></span><br></pre></td></tr></table></figure>
+<h2 id="联机还原"><a href="#联机还原" class="headerlink" title="联机还原"></a>联机还原</h2><h3 id="example1"><a href="#example1" class="headerlink" title="example1"></a>example1</h3><p>所需恢复的数据文件不属于系统表空间或还原表空间，磁盘介质损坏/数据文件崩溃或丢失，但是未造成数据库关闭，恢复过程中，满足：保证数据库关闭时间最小</p>
+<h4 id="表空间"><a href="#表空间" class="headerlink" title="表空间"></a>表空间</h4><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> tablespace_name,file_name,online_status <span class="keyword">from</span> dba_data_files;	  <span class="comment">-- 使用数据字典dba_tablespaces 查看要恢复的表空间是否处在脱机状态</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">tablespace</span> <span class="keyword">users</span> <span class="keyword">offline</span>;如果该表空间处在联机状态，要把置为脱机</span><br><span class="line">host copy 操作系统命令将备份的数据文件复制到原有位置</span><br><span class="line"><span class="keyword">alter</span>   <span class="keyword">rename</span> <span class="keyword">to</span> …. 重命名数据文件</span><br><span class="line"><span class="keyword">Recover</span> <span class="keyword">tablespace</span> 表空间名</span><br></pre></td></tr></table></figure>
+
+<h4 id="数据文件"><a href="#数据文件" class="headerlink" title="数据文件"></a>数据文件</h4><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> file_id,tablespace_name,file_name <span class="keyword">from</span> dba_data_files;	使用数据字典dba_data_files获取要恢复的数据文件及它所在的表空间的关系；</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">file</span><span class="comment">#,name,status from V$datafile;  -- 也可以通过V$datafile确认要修复的数据文件是否处在脱机状态</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">datafile</span> n <span class="keyword">offline</span>;把要修复的这个数据文件设置为脱机状态，</span><br><span class="line">host copy <span class="comment">-- 使用操作系统命令将备份的数据文件复制到原有位置，如果是原有路径的磁盘坏了</span></span><br><span class="line"><span class="keyword">alter</span>   <span class="keyword">rename</span> <span class="keyword">to</span> …. 重命名数据文件</span><br><span class="line"><span class="keyword">recover</span> <span class="keyword">datafile</span> n; 使用recover将所有提交的数据从归档日志写入已修复的数据文件</span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> n <span class="keyword">online</span>;</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="example2"><a href="#example2" class="headerlink" title="example2"></a>example2</h4><p>例2 所需恢复的数据文件不属于系统表空间或还原空间，介质损坏/数据文件丢失，但是已经造成了数据库的关闭，恢复：条件：希望数据库关闭时间必须保持最小。<br>首要目的：要让数据库正常打开，不要影响其他工作</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">startup mount</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">file</span><span class="comment">#,name,status from V$datafile; -- 通过V$datafile去查看要修复的数据文件的信息</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">datafile</span> n <span class="keyword">offline</span>; </span><br><span class="line"><span class="keyword">Alter</span> <span class="keyword">database</span> <span class="keyword">open</span>;</span><br><span class="line">Host copy 把备份的数据文件复制到原有路径</span><br><span class="line">recover datafile ….;</span><br><span class="line">用<span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">datafile</span> n <span class="keyword">online</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="example3"><a href="#example3" class="headerlink" title="example3"></a>example3</h4><p>例3想办法去恢复那些没有备份的数据文件<br>所需恢复的数据文件不属于系统表空间或还原表空间，由于介质损坏或用户错误导致数据文件丢失，但是这个数据文件从来没有备份过，但是从数据文件创建以来所有的日志文件都完好。</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">startup mount；</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">file</span><span class="comment">#,name,status from V$datafile;  -- V$datafile确认数据文件是脱机还是联机状态</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">datafile</span> n <span class="keyword">offline</span>;  数据文件脱机</span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">open</span> ;</span><br><span class="line"><span class="keyword">Select</span> * <span class="keyword">from</span> V$recover_file;</span><br><span class="line"><span class="keyword">Alter</span> <span class="keyword">database</span> <span class="keyword">create</span> <span class="keyword">datafile</span> ‘……丢失文件路径..’;</span><br><span class="line">Recover datafile ‘……丢失文件路径…’;</span><br><span class="line"><span class="keyword">Alter</span> <span class="keyword">database</span> <span class="keyword">datafile</span> n <span class="keyword">online</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="example4"><a href="#example4" class="headerlink" title="example4"></a>example4</h4><p>所需恢复的数据文件属于系统表空间或还原表空间，或者整个数据库或大多数的数据文件都要恢复，，数据库允许短暂的关闭<br>假设系统表空间所在的磁盘损坏，导致系统数据文件丢失，幸好之前做了文件的热备份，且日志文件保存完整，请你做数据库的全恢复</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> file_id,tablespace_name,file_name <span class="keyword">from</span> dba_data_files;	</span><br><span class="line">shutdown immediate;</span><br><span class="line">startup mount</span><br><span class="line">host copy <span class="comment">-- 使用操作系统命令把备份的复制回来，如果是磁盘损坏，要复制到新的路径，</span></span><br><span class="line">startup mount;</span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">rename</span> <span class="keyword">file</span>   <span class="string">&#x27;/oradata/PMPTGDB/users01.dbf&#x27;</span>   <span class="keyword">to</span>   <span class="string">&#x27;/media/hdd1/oradata/PMPTGDB/users01.dbf &#x27;</span>;  <span class="comment">--之后要alter 命令更改数据文件的路径</span></span><br><span class="line">Recover database;</span><br><span class="line"><span class="keyword">Alter</span> <span class="keyword">database</span> <span class="keyword">open</span>;</span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>oracle</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Oracle 闪回</title>
     <url>/2020/06/04/oracle9/</url>
     <content><![CDATA[<blockquote class="blockquote-center">
@@ -695,12 +741,6 @@
       <tags>
         <tag>oracle</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>网站性能优化</title>
-    <url>/2020/07/17/web/</url>
-    <content><![CDATA[<a id="more"></a>
-]]></content>
   </entry>
   <entry>
     <title>XAMPP的安装及使用教程</title>
@@ -752,43 +792,9 @@
       </tags>
   </entry>
   <entry>
-    <title>git基本使用</title>
-    <url>/2020/09/21/git/</url>
-    <content><![CDATA[<blockquote class="blockquote-center">
-<p>git命令笔记</p>
-
-</blockquote>
-<a id="more"></a>
-<h2 id="git"><a href="#git" class="headerlink" title="git"></a>git</h2><p>git官网：<span class="exturl" data-url="aHR0cHM6Ly9naXQtc2NtLmNvbS8=">https://git-scm.com/<i class="fa fa-external-link-alt"></i></span></p>
-<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git --version <span class="comment">#查看git版本</span></span><br><span class="line"></span><br><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;youremail@example.com&quot;</span> <span class="comment">#创建SSH私钥</span></span><br><span class="line"><span class="built_in">cd</span> ~/.ssh                                    <span class="comment">#打开密钥文件夹</span></span><br><span class="line">cat id_rsa.pub                               <span class="comment">#查看密钥</span></span><br><span class="line"></span><br><span class="line">git config --global user.name <span class="string">&quot;name&quot;</span>                   <span class="comment">#配置用户名</span></span><br><span class="line">git config --global user.email &lt;youremail@example.com&gt; <span class="comment">#配置电子邮箱地址</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git init [directory] <span class="comment">#初始化一个仓库</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="克隆仓库"><a href="#克隆仓库" class="headerlink" title="克隆仓库"></a>克隆仓库</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> &lt;path&gt; &lt;directory&gt; <span class="comment">#克隆本地仓库到指定目录</span></span><br><span class="line">git <span class="built_in">clone</span> &lt;url&gt; [directory]  <span class="comment">#克隆远端仓库</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="添加暂存区"><a href="#添加暂存区" class="headerlink" title="添加暂存区"></a>添加暂存区</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git add &lt;file&gt; ...      <span class="comment">#添加文件到暂存区</span></span><br><span class="line">git add &lt;directory&gt; ... <span class="comment">#添加目录到暂存区</span></span><br><span class="line">git add .               <span class="comment">#添加被修改文件、新建文件到暂存区</span></span><br><span class="line">git add -u              <span class="comment">#添加被修改文件、被删除文件到暂存区</span></span><br><span class="line">git add -A              <span class="comment">#添加新建文件、被修改文件、被删除文件到暂存区</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git rm &lt;file&gt; <span class="comment">#从工作区和暂存区删除文件</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="移动或重命名"><a href="#移动或重命名" class="headerlink" title="移动或重命名"></a>移动或重命名</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git mv &lt;old&gt; &lt;new&gt; <span class="comment">#移动或重命名一个文件、目录</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="查看暂存区状态"><a href="#查看暂存区状态" class="headerlink" title="查看暂存区状态"></a>查看暂存区状态</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git status <span class="comment">#绿色为暂存区未提交到仓库，红色为工作区未提交到暂存区</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="查看差异"><a href="#查看差异" class="headerlink" title="查看差异"></a>查看差异</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git diff [file]                      <span class="comment">#显示工作区与暂存区的差异</span></span><br><span class="line">git diff --cached [file]             <span class="comment">#显示暂存区和仓库的差异</span></span><br><span class="line">git diff --staged [file]             <span class="comment">#显示暂存区和仓库的差异</span></span><br><span class="line">git diff HEAD                        <span class="comment">#显示工作区和仓库的差异</span></span><br><span class="line">git diff &lt;commit_id_1&gt; &lt;commit_id_2&gt; <span class="comment">#显示两次提交的差异</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="提交仓库"><a href="#提交仓库" class="headerlink" title="提交仓库"></a>提交仓库</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git commit [file] ... -m <span class="string">&quot;message&quot;</span>  <span class="comment">#提交暂存区文件到仓库</span></span><br><span class="line">git commit [file] ... -am <span class="string">&quot;message&quot;</span> <span class="comment">#提交工作区文件到仓库</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="回退版本"><a href="#回退版本" class="headerlink" title="回退版本"></a>回退版本</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git reset HEAD^        <span class="comment">#回退上一个版本</span></span><br><span class="line">git reset HEAD^ [file] <span class="comment">#回退指定文件的上一个版本</span></span><br><span class="line">git reset &lt;commit&gt;     <span class="comment">#回退到指定版本</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="查看提交历史"><a href="#查看提交历史" class="headerlink" title="查看提交历史"></a>查看提交历史</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">log</span>          <span class="comment">#查看历史提交记录</span></span><br><span class="line">git <span class="built_in">log</span> -p&lt;file&gt; <span class="comment">#查看指定文件的提交记录</span></span><br><span class="line">git blame &lt;file&gt; <span class="comment">#以列表方式查看指定文件的提交记录</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git branch &lt;branch&gt;      <span class="comment">#创建分支</span></span><br><span class="line">git branch               <span class="comment">#显示所有分支</span></span><br><span class="line">git checkout &lt;branch&gt;    <span class="comment">#切换指定分支</span></span><br><span class="line">git checkout -d &lt;branch&gt; <span class="comment">#删除指定分支</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="远程操作"><a href="#远程操作" class="headerlink" title="远程操作"></a>远程操作</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote add &lt;remote&gt; &lt;url&gt; <span class="comment">#添加远程仓库</span></span><br><span class="line">git remote add origin &lt;url&gt;</span><br><span class="line">git remote -v                 <span class="comment">#显示所有远程仓库</span></span><br><span class="line">git remote show &lt;remote&gt;      <span class="comment">#查看远程仓库信息</span></span><br><span class="line">git remote rename &lt;old&gt; &lt;new&gt; <span class="comment">#修改仓库名</span></span><br><span class="line">git remote rm &lt;remoto&gt;        <span class="comment">#删除远程仓库</span></span><br><span class="line">git remote rm origin</span><br><span class="line"></span><br><span class="line">git pull &lt;remote&gt; &lt;master&gt;:&lt;master&gt; <span class="comment">#下载远程代码并合并</span></span><br><span class="line">git pull origin master</span><br><span class="line"></span><br><span class="line">git push &lt;remote&gt; &lt;master&gt;:&lt;master&gt; <span class="comment">#上传远程代码并合并</span></span><br><span class="line">git push origin master</span><br><span class="line">git push --force &lt;remote&gt; &lt;master&gt;  <span class="comment">#本地与远程有差异，使用强制推送</span></span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>git</tag>
-      </tags>
+    <title>网站性能优化</title>
+    <url>/2020/07/17/web/</url>
+    <content><![CDATA[<a id="more"></a>
+]]></content>
   </entry>
 </search>
